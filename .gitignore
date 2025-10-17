@@ -1,0 +1,14 @@
+# 環境設定檔
+.env
+
+# node_modules
+node_modules/
+
+# 日誌檔
+*.log
+
+# Mac 系統檔
+.DS_Store
+
+# AWS 權限
+kiwipin.zshrkc
