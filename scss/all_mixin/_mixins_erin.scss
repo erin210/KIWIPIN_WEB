@@ -1,0 +1,319 @@
+    //////////////////////////////////
+    // @include clearfix()
+    @mixin clearfix() {
+        &:before,
+        &:after {
+            content: "";
+            display: table;
+        }
+        &:after {
+            clear: both;
+        }
+    }
+    
+    ;
+    //@include tran(.3s, ease);
+    @mixin tran($sec, $ease) {
+        -webkit-transition: all $sec $ease 0s;
+        -moz-transition: all $sec $ease 0s;
+        -o-transition: all $sec $ease 0s;
+        transition: all $sec $ease 0s;
+    }
+    
+    @mixin filter($value) {
+        -webkit-filter: $value;
+        -moz-filter: $value;
+        -o-filter: $value;
+        filter: $value;
+    }
+    
+    @mixin center_area($width) {
+        width: $width;
+        margin: 0 auto;
+    }
+    
+    @mixin link_hover {
+        margin: 0;
+        padding: 0;
+        display: block;
+        @include transition(0.3s);
+        opacity: 0;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    
+    //border-radius
+    @mixin border-radius($radius) {
+        -webkit-border-radius: $radius;
+        -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+        border-radius: $radius;
+    }
+    
+    //@include border-radius(10px);
+   
+    @mixin text-ellipsis ($ww,$clamp) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $clamp;
+        // white-space: nowrap;
+        width: $ww;
+        @content;
+    }
+    
+    // @include text-ellipsis;
+    //text-justify
+    @mixin text-justify() {
+        text-align: justify;
+        text-justify: inter-ideograph;
+        -ms-text-justify: inter-ideograph;
+        /*IE9*/
+        -webkit-text-align-last: justify;
+        /*Chrome*/
+        -moz-text-align-last: justify;
+        /*Firefox*/
+        &:after {
+            content: "";
+            display: inline-block;
+            width: 100%;
+        }
+    }
+    
+    @mixin float_x($margin) {
+        float: left;
+        &:not(:last-child) {
+            margin-right: $margin;
+            @content;
+        }
+    }
+    
+    @mixin nav_x($padding) {
+        //li
+        @include float_x($padding);
+        a {
+            display: block;
+            padding: $padding $padding*2.5;
+            @content;
+        }
+    }
+    
+    // @include nav_h(3px);
+    @mixin color_gradient ($deg, $st-color, $st-value, $end-color, $end-value) {
+        background: $st-color;
+        /* Old browsers */
+        background: linear-gradient($deg, $st-color $st-value, $end-color $end-value);
+        background: -moz-linear-gradient($deg, $st-color $st-value, $end-color $end-value);
+        background: -webkit-linear-gradient($deg, $st-color $st-value, $end-color $end-value);
+        background: -o-linear-gradient($deg, $st-color $st-value, $end-color $end-value);
+    }
+    //@include color_gradient(45deg, #ff0000, 0%, #0000ff, 100%);
+    @mixin shadow($s, $b) {
+        -moz-box-shadow: $s $b $b*1.2 rgba(0, 0, 0, .2);
+        -webkit-box-shadow: $s $b $b*1.2 rgba(0, 0, 0, .2);
+        box-shadow: $s $b $b*1.2 rgba(0, 0, 0, .2);
+    }
+    @mixin shadow_stroke($s1, $s2, $color){
+        filter: drop-shadow($s1 0 0 $color)
+                drop-shadow(0 $s1 0 $color)
+                drop-shadow(0 $s2 0 $color)
+                drop-shadow($s2 0 0 $color);//右下左上
+    }//@include shadow_stroke(0.001px, -0.001px, $dark);
+
+    @mixin photo_center() {
+        display: block;
+        text-align: center;
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            vertical-align: middle;
+        }
+        &::after {
+            content: "";
+            border: 0 none;
+            display: inline-block;
+            font-size: 0;
+            height: 100%;
+            line-height: 0;
+            vertical-align: middle;
+            width: 0;
+        }
+    }
+    
+    @mixin a_style($color) {
+        @if($color==$primary) {
+            color: $color;
+            &:hover,
+            &.active {
+                text-decoration: underline;
+            }
+        }
+        @else {
+            color: $color;
+            &:hover,
+            &.active {
+                color: $primary;
+            }
+        }
+    }
+    
+    // @mixin triangle($value, $color) {
+    //     width: 0;
+    //     height: 0;
+    //     border-style: solid;
+    //     border-width: $value;
+    //     border-color: $color transparent transparent transparent; //arrow up 0 9px 9px 9px;
+    //     //arrow down 9px 9px 0 9px;
+    // }
+    /// Triangle helper mixin
+    /// $direction - Triangle direction, either `top`, `right`, `bottom` or `left`
+    /// $color [currentcolor] - Triangle color 
+    /// $size [1em] - Triangle size
+    @mixin triangle_1($direction, $color: currentcolor, $size: 1em) {
+        @if not index(top right bottom left, $direction) {
+            @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+        }
+        width: 0;
+        height: 0;
+        content: '';
+        z-index: 2;
+        border-#{opposite-position($direction)}: ($size * 1.5) solid $color;
+        $perpendicular-borders: $size solid transparent;
+        @if $direction==top or $direction==bottom {
+            border-left: $perpendicular-borders;
+            border-right: $perpendicular-borders;
+        }
+        @else if $direction==right or $direction==left {
+            border-bottom: $perpendicular-borders;
+            border-top: $perpendicular-borders;
+        }
+    }
+    
+    @mixin triangle($direction, $color, $height, $width) {
+        // Base styles for all triangles
+        border-style: solid;
+        height: 0;
+        width: 0;
+        display: block; //Erin-add
+        // Cardinal Directions - can't be scalene this way
+        @if($direction=='top') {
+            border-color: transparent transparent $color transparent;
+            border-width: 0 ($width/2) $height ($width/2);
+        }
+        @if ($direction=='bottom') {
+            border-color: $color transparent transparent transparent;
+            border-width: $height ($width/2) 0 ($width/2);
+        }
+        @if ($direction=='right') {
+            border-color: transparent transparent transparent $color;
+            border-width: ($height/2) 0 ($height/2) $width;
+        }
+        @if ($direction=='left') {
+            border-color: transparent $color transparent transparent;
+            border-width: ($height/2) $width ($height/2) 0;
+        }
+        // Ordinal Directions - can be scalene this way!
+        @if ($direction=='top-left') {
+            border-color: $color transparent transparent transparent;
+            border-width: $height $width 0 0;
+        }
+        @if ($direction=='top-right') {
+            border-color: transparent $color transparent transparent;
+            border-width: 0 $width $height 0;
+        }
+        @if ($direction=='bottom-left') {
+            border-color: transparent transparent transparent $color;
+            border-width: $height 0 0 $width;
+        }
+        @if ($direction=='bottom-right') {
+            border-color: transparent transparent $color transparent;
+            border-width: 0 0 $height $width;
+        }
+    }
+    
+    // Browser Prefixes
+    @mixin transform($transforms) {
+        -webkit-transform: $transforms;
+        -moz-transform: $transforms;
+        -ms-transform: $transforms;
+        transform: $transforms;
+    }
+    
+    // Rotate
+    @mixin rotate ($deg) {
+        @include transform(rotate(#{$deg}deg));
+    }
+    
+    // Scale
+    @mixin scale($scale) {
+        @include transform(scale($scale));
+    }
+    
+    // Translate
+    @mixin translate ($x, $y) {
+        @include transform(translate($x, $y));
+    }
+    
+    // Skew
+    @mixin skew ($x, $y) {
+        @include transform(skew(#{$x}deg, #{$y}deg));
+    }
+    
+    // Transform Origin
+    @mixin transform-origin ($origin) {
+        -webkit-transform-origin: $origin;
+        -moz-transform-origin: $origin;
+        -ms-transform-origin: $origin;
+        transform-origin: $origin;
+    }
+    
+    @mixin animation($str) {
+        animation: #{$str};
+        -moz-animation: #{$str};
+        /* Firefox */
+        -webkit-animation: #{$str};
+        /* Safari and Chrome */
+        -o-animation: #{$str};
+        /* Opera */
+    }
+    
+    @mixin keyframe ($animation_name) {
+        @-webkit-keyframes #{$animation_name} {
+            @content;
+        }
+        @-moz-keyframes #{$animation_name} {
+            @content;
+        }
+        @keyframes #{$animation_name} {
+            @content;
+        }
+    }
+    
+    @mixin animation ($delay, $duration, $animation, $direction, $fillmode, $iteration) {
+        -webkit-animation-delay: $delay; //定義元素讀取完畢到動畫開始的間隔時間。 ex:2s
+        -webkit-animation-duration: $duration; //定義動畫完成一次週期的時間。 ex:1s
+        -webkit-animation-name: $animation; //同$animation_name
+        -webkit-animation-fill-mode: $fillmode; //定義元素在動畫播放外(動畫開始前及結束後)的狀態。 ex:normal/none
+        -webkit-animation-direction: $direction; //定義是否動畫播放完畢後將會反向播放。 ex: normal / inherit
+        -webkit-animation-iteration-count: $iteration; //定義動畫重複的次數。你可以用 infinite 來讓動畫永遠重複播放。 ex: 1s/infinite
+        -moz-animation-delay: $delay;
+        -moz-animation-duration: $duration;
+        -moz-animation-name: $animation;
+        -moz-animation-fill-mode: $fillmode;
+        -moz-animation-direction: $direction;
+        -moz-animation-iteration-count: $iteration;
+        animation-delay: $delay;
+        animation-duration: $duration;
+        animation-name: $animation;
+        animation-fill-mode: $fillmode;
+        animation-direction: $direction;
+        animation-iteration-count: $iteration;
+    }
+    
+    //@include animation (0, .3s, fadeIn, forwards, unset, 1);
+    //@include animation (0, .5s, fadeIn70, forwards, unset, 1);
+    //@include animation (0s, 1s, shiny, normal, normal, infinite);
+    //@include animation (0, .5s, slideLeft, forwards, unset, 1);
+    //@include animation (0s, .7s, downMove, normal, normal, infinite);

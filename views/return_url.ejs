@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('layout/head') %>
+</head>
+
+<body>
+    <%- include('layout/header') %>
+        <main class="pages">
+            <section class="areaPage page_result">
+                <div class="wrap">
+                    <div class="resultBox">
+                        <div class="result_message">
+                            <img id="Notify_Icon" src="" alt="">
+                            <span id="Notify_Title"><b class="NOTIFY_TITLE_S" style="display: none;">恭喜您！購買成功</b><b
+                                    class="NOTIFY_TITLE_F" style="display: none;"></b></span>
+                        </div>
+                        <div class="result_info"></div>
+                        <a href="product_list" class="btn_start">
+                            <span class="BTN_BUY_OTHER" style="display: none;">繼續購買</span><span class="BTN_REBUY"
+                                style="display: none;">重新購買</span><i><img src="<%- cdn %>/assets/img/i_btn_arrow.svg"
+                                    alt=""></i>
+                        </a>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+        <%- include('layout/footer') %>
+
+            <!-- <script src="<%- cdn %>/assets/js/wow.min.js"></script> -->
+            <script src="<%- cdn %>/assets/js/main.js"></script>
+            <script>
+                // $(function () {
+                //     $('base').attr('href', apiUrl);
+                // });
+
+                // $("header").load("<%- cdn %>/layout/header.html");
+                // $("footer").load("<%- cdn %>/layout/footer.html");
+
+                // new WOW().init();
+                // $(window).on('scroll', function () {
+                //     handleFooterEffect();
+                // });
+
+                function renderInfo(json) {
+                    initTranslation(json)//翻譯
+
+                    const dataSUCCESS = {
+                        "PINCODE_TITLE": json.PINCODE,
+                        "PRODUCT_NAME_TITLE": json.PRODUCT_NAME,
+                        "PIN_SERIAL_TITLE": json.PIN_SERIAL,
+                        "START_TIME_TITLE": json.START_TIME,
+                        "EXPIRY_TIME_TITLE": json.EXPIRY_TIME,
+                        "RMSG_CHI_TITLE": json.RMSG_CHI
+                    }
+                    const dataERROR = {
+                        "RMSG_CHI_TITLE": json.RMSG_CHI,
+                        "PRODUCT_NAME_TITLE": json.PRODUCT_NAME
+                    }
+                    // console.log(dataSUCCESS);
+
+
+                    if (json.PAY_STATUS == "S") {
+                        $('#Notify_Icon').attr("src", "<%- cdn %>/assets/img/icon_success.svg");
+                        $("#Notify_Title .NOTIFY_TITLE_S").show();
+                        resultINFO(dataSUCCESS);
+                        $('.result_info').addClass('success_info');
+                        $('.result_info .item:first-child').find('.content').append('<span class="code_copy"><img  src="<%- cdn %>/assets/img/icon_copy.svg" alt="copy"/></span>');
+                        $('.result_info').removeAttr('id', "ERROR_INFO");
+                        $('.btn_start .BTN_BUY_OTHER').show();
+
+                        initTranslation(json)//翻譯
+
+                    } else {
+                        $('#Notify_Icon').attr("src", "<%- cdn %>/assets/img/icon_error.svg");
+                        $("#Notify_Title .NOTIFY_TITLE_F").show().css({ 'color': 'var(--error)' });
+                        resultINFO(dataERROR);
+                        $('.result_info').addClass('error_info');
+                        $('.btn_start .BTN_REBUY').show();
+
+                        initTranslation(json)//翻譯
+                    }
+
+                    Object.keys(json).forEach(function (k) {
+                        var eleName = '#' + k;
+                        // console.log(eleName + ' - ' + json[k]);
+                        if ($(eleName).length <= 0) {
+                            appendElement_Input('#form', k, json[k]);
+                        } else {
+                            $(eleName).val(json[k]);
+                        }
+                    });
+
+                    //code_cpoy
+                    $('.result_info').on('click', '.code_copy', async function () {
+                        var contentText = $('.result_info .item:first-child').find('.content');
+                        var originalText = contentText.text(); //儲值密碼
+                        // console.log(originalText);
+
+
+                        try {
+                            // 複製
+                            await navigator.clipboard.writeText(originalText);
+                            contentText.addClass('CODE_COPY');
+                            initTranslation(json)//翻譯
+
+                            //恢復
+                            setTimeout(function () {
+                                contentText.html(originalText + '<span class="code_copy"><img src="<%- cdn %>/assets/img/icon_copy.svg" alt="copy"/></span>');
+                            }, 1000);
+                        } catch (error) {
+                            console.error("複製失敗：", error);
+                        }
+                    });
+
+                    // initTranslation(json)//翻譯
+
+                }
+
+
+                //印資料
+                function resultINFO(data) {
+                    $(".result_info").empty();
+
+                    Object.entries(data).forEach(([key, value]) => {
+                        const TimeTXT = formatTime(value);
+                        const htmlINFO = `
+                <div class="item">
+                <div class="title ${key}"></div>
+                <div class="content">${(key == "點卡啟用日" || key == "點卡到期日") ? TimeTXT : value}</div>
+                </div>`;
+
+                        $(".result_info").append(htmlINFO);
+
+                    });
+                }
+
+                function appendElement_Input(ele, name, value) {
+                    var textHtml = '<input type="hidden" name="' + name + '"';
+                    textHtml += ' value="' + value + '"';
+                    textHtml += '/>';
+                    $(ele).append(textHtml);
+                }
+
+                function check_submit() {
+                    document.getElementById('form').submit();
+
+                    //return true;
+                }
+                //時間標註
+                function formatTime(tt) {
+                    const dateTime = tt;
+                    const [datePart, timePart] = dateTime.split(" ");
+                    const formattedDateTime = `${datePart} <b class="timetxt">${timePart}</b>`;
+                    return formattedDateTime;
+                }
+
+
+            </script>
+            <script>
+                // initFunction({
+                //     "Tpye": "RETURN", "data": "eyJNU0dfVFlQRSI6IjAxMTAiLCJQQ09ERSI6IjMwMDAwMCIsIkNJRCI6IkMwMDAwMTAwMDAwMTMiLCJDT0lEIjoiS00yMDI1MDExMDAzMzQzMSIsIlJSTiI6IkdQMjUwMTEwMjAwMjY3MTIiLCJDVUlEIjoiVVNEIiwiUEFJRCI6IkJOS1JCUzAxIiwiQU1PVU5UIjoiMSIsIk9SREVSX1RZUEUiOiJNIiwiUEFZX1NUQVRVUyI6IlMiLCJSQ09ERSI6IjAwMDAiLCJQQVlfUkNPREUiOiIwMDAwIiwiTUlEIjoiTTEwMDAwMDEiLCJCSUQiOiIiLCJNRU1PIjoiIiwiTVdfVVJMIjoiIiwiTEFOR1VBR0UiOiIiLCJHQU1FX05BTUUiOiIiLCJQQUlEX05BTUUiOiIiLCJQUk9EVUNUX05BTUUiOiJLSVdJIFx1OWVkZVx1NTM2MSAxMDAgXHU5ZWRlIiwiUFJPRFVDVF9JRCI6IiIsIkJPTlVTX0lEIjoiIiwiVVNFUl9BQ0NUSUQiOiJ5b3Vyd2ViMjEwQGdtYWlsLmNvbSIsIlVTRVJfR1JPVVBJRCI6IiIsIlVTRVJfSVAiOiIxMTQuMzIuMTkuMjUyIiwiVFhUSU1FIjoiMjAyNTAxMTAxMTM0MzQiLCJFWFRFTlNJT04iOiIiLCJQOTlfSU5GTyI6IiIsIlBST01PX0NPREUiOiIiLCJSTVNHIjoiIiwiUk1TR19DSEkiOiJcdThhMGFcdTYwNmZcdTg2NTVcdTc0MDZcdTYyMTBcdTUyOWYiLCJQSFNfQ0hBTk5FTF9JRCI6IiIsIlBIU19DT01QQU5ZX0lEIjoiIiwiRVJQQyI6Imp0ZTZZY1FCZEJyZnRjRHQ4eUs0Sml5Q1hqbz0ifQ==", "PAY_STATUS": "S", "PRODUCT_NAME": "KIWI \u9ede\u5361 100 \u9ede", "PIN_SERIAL": "1000004513", "PINCODE": "XC8RDP1R7EPDE1FD", "START_TIME": "2025-01-10 11:36:11", "EXPIRY_TIME": "2027-01-10 11:36:11", "RMSG_CHI": "\u8a0a\u606f\u8655\u7406\u6210\u529f",
+                //     "LanguageDefault": "en_US",
+                //     "LanguageList": { "en_US": "English", "zh_TW": "中文" },
+                //     "StringID": {
+                //         "en_US": {
+                //             "NOTIFY_TITLE_S": "Congratulations! Purchase Successful",
+                //             "NOTIFY_TITLE_F": "Transaction Failed",
+                //             "PINCODE_TITLE": "Top-up Code",
+                //             "PRODUCT_NAME_TITLE": "Product Name",
+                //             "PIN_SERIAL_TITLE": "Card Serial Number",
+                //             "START_TIME_TITLE": "Activation Date",
+                //             "EXPIRY_TIME_TITLE": "Expiration Date",
+                //             "RMSG_CHI_TITLE": "Order Status",
+                //             "BTN_BUY_OTHER": "Continue Shopping",
+                //             "BTN_REBUY": "Buy Again",
+                //             "CODE_COPY": "Copied!"
+                //         },
+                //         "zh_TW": {
+                //             "NOTIFY_TITLE_S": "恭喜！購買成功",
+                //             "NOTIFY_TITLE_F": "交易失敗",
+                //             "PINCODE_TITLE": "儲值密碼",
+                //             "PRODUCT_NAME_TITLE": "商品名稱",
+                //             "PIN_SERIAL_TITLE": "點卡序號",
+                //             "START_TIME_TITLE": "啟用日期",
+                //             "EXPIRY_TIME_TITLE": "到期日期",
+                //             "RMSG_CHI_TITLE": "訂單狀態",
+                //             "BTN_BUY_OTHER": "繼續購買",
+                //             "BTN_REBUY": "重新購買",
+                //             "CODE_COPY": "複製成功！"
+                //         }
+                //     },
+                //     "theme": {
+                //         "BG_COLOR_PRIMARY": "",
+                //         "BG_COLOR_SECOND": "",
+                //         "BG_IMG_URL_PC": "",
+                //         "BG_IMG_URL_M": ""
+                //     }
+                // });
+
+                initFunction({
+                    "Tpye": "RETURN", "data": "eyJNU0dfVFlQRSI6IjAxMTAiLCJQQ09ERSI6IjMwMDAwMCIsIkNJRCI6IkMwMDAwMTAwMDAwMTMiLCJDT0lEIjoiS00yMDI1MDExMDAzMzA0OCIsIlJSTiI6IkdQMjUwMTEwMjAwMjY1NzAiLCJDVUlEIjoiVVNEIiwiUEFJRCI6IkJOS1JCUzAxIiwiQU1PVU5UIjoiMSIsIk9SREVSX1RZUEUiOiJNIiwiUEFZX1NUQVRVUyI6IkYiLCJSQ09ERSI6IjMwMDEiLCJQQVlfUkNPREUiOiIzMDAxIiwiTUlEIjoiTTEwMDAwMDEiLCJCSUQiOiIiLCJNRU1PIjoiIiwiTVdfVVJMIjoiIiwiTEFOR1VBR0UiOiIiLCJHQU1FX05BTUUiOiIiLCJQQUlEX05BTUUiOiIiLCJQUk9EVUNUX05BTUUiOiJLSVdJIFx1OWVkZVx1NTM2MSAxMDAgXHU5ZWRlIiwiUFJPRFVDVF9JRCI6IiIsIkJPTlVTX0lEIjoiIiwiVVNFUl9BQ0NUSUQiOiJ5b3Vyd2ViMjEwQGdtYWlsLmNvbSIsIlVTRVJfR1JPVVBJRCI6IiIsIlVTRVJfSVAiOiIxMTQuMzIuMTkuMjUyIiwiVFhUSU1FIjoiMjAyNTAxMTAxMTMwNTAiLCJFWFRFTlNJT04iOiIiLCJQOTlfSU5GTyI6IiIsIlBST01PX0NPREUiOiIiLCJSTVNHIjoiIiwiUk1TR19DSEkiOiJcdTcxMjFcdTZjZDVcdTViOGNcdTYyMTBcdTRlZDhcdTZiM2UiLCJQSFNfQ0hBTk5FTF9JRCI6IiIsIlBIU19DT01QQU5ZX0lEIjoiIiwiRVJQQyI6IklhZENUT2hRUE5uNE5QK2Nrc2VjSGtlOEFmZz0ifQ==", "PAY_STATUS": "F", "PRODUCT_NAME": "KIWI \u9ede\u5361 100 \u9ede", "PIN_SERIAL": "", "PINCODE": "", "START_TIME": "", "EXPIRY_TIME": "", "RMSG_CHI": "\u7121\u6cd5\u5b8c\u6210\u4ed8\u6b3e",
+                    "LanguageDefault": "en_US",
+                    "LanguageList": { "en_US": "English", "zh_TW": "中文" },
+                    "StringID": {
+                        "en_US": {
+                            "NOTIFY_TITLE_S": "Congratulations! Purchase Successful",
+                            "NOTIFY_TITLE_F": "Transaction Failed",
+                            "PINCODE_TITLE": "Top-up Code",
+                            "PRODUCT_NAME_TITLE": "Product Name",
+                            "PIN_SERIAL-TITLE": "Card Serial Number",
+                            "START_TIME_TITLE": "Activation Date",
+                            "EXPIRY_TIME_TITLE": "Expiration Date",
+                            "RMSG_CHI_TITLE": "Order Status",
+                            "BTN_BUY_OTHER": "Continue Shopping",
+                            "BTN_REBUY": "Buy Again"
+                        },
+                        "zh_TW": {
+                            "NOTIFY_TITLE_S": "恭喜！購買成功",
+                            "NOTIFY_TITLE_F": "交易失敗",
+                            "PINCODE_TITLE": "儲值密碼",
+                            "PRODUCT_NAME_TITLE": "商品名稱",
+                            "PIN_SERIAL-TITLE": "點卡序號",
+                            "START_TIME_TITLE": "啟用日期",
+                            "EXPIRY_TIME_TITLE": "到期日期",
+                            "RMSG_CHI_TITLE": "訂單狀態",
+                            "BTN_BUY_OTHER": "繼續購買",
+                            "BTN_REBUY": "重新購買"
+                        }
+                    },
+                    "theme": {
+                        "BG_COLOR_PRIMARY": "",
+                        "BG_COLOR_SECOND": "",
+                        "BG_IMG_URL_PC": "",
+                        "BG_IMG_URL_M": ""
+                    }
+                });
+
+            </script>
+</body>
+
+</html>

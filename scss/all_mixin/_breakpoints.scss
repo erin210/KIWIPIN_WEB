@@ -1,0 +1,61 @@
+@mixin breakpoint($point, $direction: 'max') {
+  $breakpoints: ('xxs': 375px, // <375px
+      'xs': 575.98px, // <576px
+      'sm': 767.98px, // <768px
+      'md': 991.98px, // <992px
+      'lg': 1199.98px, // <1200px
+      'xl': 1399.98px, // <1400px
+      'xxl': 1400px // >=1400px
+    );
+
+
+
+  $width: map-get($breakpoints, $point);
+
+  @if $width {
+    @if $direction=='max' {
+      @media (max-width: $width) {
+        @content;
+      }
+    }
+
+    @else if $direction=='min' {
+      @media (min-width: $width) {
+        @content;
+      }
+    }
+  }
+
+  @else {
+    @warn "Breakpoint '#{$point}' not found in the map!";
+  }
+}
+
+//針對手機版＋手機拿橫的
+@mixin m___m {
+
+  @media screen and (max-width: 767px),
+  screen and (max-device-width: 932px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+//只針對手機拿橫
+@mixin landscape {
+  @media screen and (max-device-width: 932px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+//ipad 橫式
+@mixin ipad {
+
+  @media only screen and (min-device-width: 834px) and (max-device-width: 1194px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+//sample
+//@include breakpoint('sm','max'){
+//   background-color: #f00;
+// }

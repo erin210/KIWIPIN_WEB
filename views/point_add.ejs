@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('layout/head') %>
+</head>
+
+<body>
+    <%- include('layout/header') %>
+        <main class="pages">
+            <h1 class="pageTitle">KIWI PIN</h1>
+            <section class="areaPage page_points">
+                <div class="wrap">
+                    <div class="card_wrapper">
+                        <form role="form" id="form" action="product" method="post" target="_self" class="form-payment">
+                            <input type="hidden" name="U_PURCHASE_AMOUNT" value="0" id="U_PURCHASE_AMOUNT">
+                        </form>
+                        <div class="item">
+                            <a href="javascript:void(0)" onclick="purchase('100',this)">
+                                <figure class="card">
+                                    <img src="<%- cdn %>/assets/img/point_card100.png" alt="">
+                                </figure>
+                                <div class="price">
+                                    <div><span>$<i>1</i></span>USD</div>
+                                    <div class="BTN_BUY">購買</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:void(0)" onclick="purchase('300',this)">
+                                <figure class="card">
+                                    <img src="<%- cdn %>/assets/img/point_card300.png" alt="">
+                                </figure>
+                                <div class="price">
+                                    <div><span>$<i>3</i></span>USD</div>
+                                    <div class="BTN_BUY">購買</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:void(0)" onclick="purchase('500',this)">
+                                <figure class="card">
+                                    <img src="<%- cdn %>/assets/img/point_card500.png" alt="">
+                                </figure>
+                                <div class="price">
+                                    <div><span>$<i>5</i></span>USD</div>
+                                    <div class="BTN_BUY">購買</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:void(0)" onclick="purchase('1000',this)">
+                                <figure class="card">
+                                    <img src="<%- cdn %>/assets/img/point_card1000.png" alt="">
+                                </figure>
+                                <div class="price">
+                                    <div><span>$<i>10</i></span>USD</div>
+                                    <div class="BTN_BUY">購買</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:void(0)" onclick="purchase('2000',this)">
+                                <figure class="card">
+                                    <img src="<%- cdn %>/assets/img/point_card2000.png" alt="">
+                                </figure>
+                                <div class="price">
+                                    <div><span>$<i>20</i></span>USD</div>
+                                    <div class="BTN_BUY">購買</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:void(0)" onclick="purchase('3000',this)">
+                                <figure class="card">
+                                    <img src="<%- cdn %>/assets/img/point_card3000.png" alt="">
+                                </figure>
+                                <div class="price">
+                                    <div><span>$<i>30</i></span>USD</div>
+                                    <div class="BTN_BUY">購買</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:void(0)" onclick="purchase('4000',this)">
+                                <figure class="card">
+                                    <img src="<%- cdn %>/assets/img/point_card4000.png" alt="">
+                                </figure>
+                                <div class="price">
+                                    <div><span>$<i>40</i></span>USD</div>
+                                    <div class="BTN_BUY">購買</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:void(0)" onclick="purchase('5000',this)">
+                                <figure class="card">
+                                    <img src="<%- cdn %>/assets/img/point_card5000.png" alt="">
+                                </figure>
+                                <div class="price">
+                                    <div><span>$<i>50</i></span>USD</div>
+                                    <div class="BTN_BUY">購買</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:void(0)" onclick="purchase('10000',this)">
+                                <figure class="card">
+                                    <img src="<%- cdn %>/assets/img/point_card10000.png" alt="">
+                                </figure>
+                                <div class="price">
+                                    <div><span>$<i>100</i></span>USD</div>
+                                    <div class="BTN_BUY">購買</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:void(0)" onclick="purchase('30000',this)">
+                                <figure class="card">
+                                    <img src="<%- cdn %>/assets/img/point_card30000.png" alt="">
+                                </figure>
+                                <div class="price">
+                                    <div><span>$<i>300</i></span>USD</div>
+                                    <div class="BTN_BUY">購買</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+        <%- include('layout/footer') %>
+
+            <!-- <script src="<%- cdn %>/assets/js/wow.min.js"></script> -->
+            <script src="<%- cdn %>/assets/js/main.js"></script>
+            <script>
+                // $(function () {
+                //     $('base').attr('href', apiUrl);
+                // });
+
+
+                // $("header").load("<%- cdn %>/layout/header.html");
+                // $("footer").load("<%- cdn %>/layout/footer.html");
+
+                // new WOW().init();
+                // $(window).on('scroll', function () {
+                //     handleFooterEffect();
+                // });
+                $(document).ready(function () {
+                    $('.buyPoint').addClass('active');
+                });
+
+                function renderInfo(json) {
+
+                    Object.keys(json).forEach(function (k) {
+                        var eleName = '#' + k;
+                        //console.log(eleName + ' - ' + json[k]);
+                        if ($(eleName).length <= 0) {
+                            appendElement_Input('#form', k, json[k]);
+                        } else {
+                            $(eleName).val(json[k]);
+                        }
+                    });
+
+                    initTranslation(json)//翻譯
+
+                }
+
+                function appendElement_Input(ele, name, value) {
+                    var textHtml = '<input type="hidden" name="' + name + '"';
+                    textHtml += ' value="' + value + '"';
+                    textHtml += '/>';
+                    $(ele).append(textHtml);
+                }
+
+                function purchase(amount, ele) {
+                    $('#U_PURCHASE_AMOUNT').val(amount);
+                    document.getElementById('form').submit();
+
+                }
+            </script>
+</body>
+
+</html>

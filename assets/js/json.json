@@ -1,0 +1,133 @@
+{
+  "Tpye": "SelectPAID",
+  "data": "eyJNU0dfVFlQRSI6IjAxMDAiLCJQQ09ERSI6IjMwMDAwMCIsIkNJRCI6IkMwMDAwMTAwMDAwMDEiLCJDT0lEIjoiQ1AyMDI0MDEwMjE3MjUzOSIsIkNVSUQiOiJVU0QiLCJQQUlEIjoiIiwiQU1PVU5UIjoiMTAiLCJSRVRVUk5fVVJMIjoiaHR0cDpcL1wvMTQuMjI1LjMuMTMxXC90ZXN0XC9yZXR1cm5fdXJsLnBocCIsIk9SREVSX1RZUEUiOiJFIiwiUFJPRFVDVF9OQU1FIjoiXHU2ZTJjXHU4YTY2XHU0ZWE0XHU2NjEzIDEwIFVTRCIsIlBST0RVQ1RfSUQiOiIiLCJVU0VSX0FDQ1RJRCI6IjYwMDAyMEFCQ0RFRkdKSkoiLCJFUlFDIjoiU2xETFdsc2RlTVhVN1VDRFU5dUlSb2ZMMlhvPSJ9",
+  "COID": "C000010000001CP20240102172539",
+  "PRODUCT": "測試交易 10 USD",
+  "AMOUNTList": [
+    {
+      "AMOUNT": 70,
+      "CUID": "CNY"
+    },
+    {
+      "AMOUNT": 80,
+      "CUID": "HKD"
+    },
+    {
+      "AMOUNT": 320,
+      "CUID": "TWD"
+    },
+    {
+      "AMOUNT": 10,
+      "CUID": "USD"
+    }
+  ],
+  "LastSelect": "",
+  "PAIDList": [
+    {
+      "PAID": "COPKWP09",
+      "ShortName": "KIWI WALLET",
+      "FullName": "KIWI WALLET",
+      "Group": "WALLET",
+      "CUID": "USD",
+      "Keyword": "COPKWP09|KIWI WALLET|KIWI WALLET",
+      "ICON_URL": "https://api-page.p99pay.com/assets/img/KIWI.svg"
+    },
+    {
+      "PAID": "TELTCC01",
+      "ShortName": "台灣大哥大 (手機帳單支付)",
+      "FullName": "台灣大哥大 (手機帳單支付)",
+      "Group": "TELECO",
+      "CUID": "TWD",
+      "Keyword": "TELTCC01|台灣大哥大 手機|台哥大手機 (帳單支付)",
+      "ICON_URL": "https://api-page.p99pay.com/assets/img/tm.svg"
+    },
+    {
+      "PAID": "COPGAM02",
+      "ShortName": "GASH 點數卡",
+      "FullName": "GASH 點數卡",
+      "Group": "PINCODE",
+      "CUID": "TWD",
+      "Keyword": "COPGAM02|GASH 點數卡充值|GASH 點數卡充值",
+      "ICON_URL": "https://api-page.p99pay.com/assets/img/gash.svg"
+    },
+    {
+      "PAID": "COPGAM05",
+      "ShortName": "GASH 點數卡",
+      "FullName": "GASH 點數卡",
+      "Group": "PINCODE",
+      "CUID": "TWD",
+      "Keyword": "COPGAM05|GASH 點數卡充值|GASH 點數卡充值",
+      "ICON_URL": "https://api-page.p99pay.com/assets/img/gash.svg"
+    },
+    {
+      "PAID": "COPKWP01",
+      "ShortName": "KIWI PIN",
+      "FullName": "KIWI PINCODE",
+      "Group": "PINCODE",
+      "CUID": "USD",
+      "Keyword": "COPKWP01|KIWI PIN|KIWI PINCODE",
+      "ICON_URL": "https://api-page.p99pay.com/assets/img/KIWI.svg"
+    },
+    {
+      "PAID": "BNKBES01",
+      "ShortName": "信用卡",
+      "FullName": "永豐信用卡",
+      "Group": "BANK",
+      "CUID": "TWD",
+      "Keyword": "BNKBES01|信用卡|永豐信用卡",
+      "ICON_URL": "https://api-page.p99pay.com/assets/img/card.svg"
+    },
+    {
+      "PAID": "BNKSEP01",
+      "ShortName": "微信支付",
+      "FullName": "微信支付",
+      "Group": "BANK",
+      "CUID": "HKD",
+      "Keyword": "BNKSEP01|微信支付|微信支付",
+      "ICON_URL": "https://api-page.p99pay.com/assets/img/wechat.svg"
+    },
+    {
+      "PAID": "BNKSEP02",
+      "ShortName": "支付寶",
+      "FullName": "支付寶",
+      "Group": "BANK",
+      "CUID": "HKD",
+      "Keyword": "BNKSEP02|支付寶|支付寶",
+      "ICON_URL": "https://api-page.p99pay.com/assets/img/Alipay.svg"
+    }
+  ],
+  "LanguageDefault": "zh_TW",
+  "LanguageList": {
+    "en_US": "English",
+    "zh_TW": "中文"
+  },
+  "StringID": {
+    "en_US": {
+      "PA_GROUP_BANK": "金融類(en)",
+      "PA_GROUP_PINCODE": "點數卡(en)",
+      "PA_GROUP_TELECO": "電信帳單(en)",
+      "PA_GROUP_WALLET": "電子錢包(en)",
+      "PAYMENT_CONFIRM": "確認付款(en)",
+      "PAYMENT_INFO": "本次欲支付的內容：(en)",
+      "PAYMENT_INFO_AMOUNT": "金額(en)",
+      "PAYMENT_INFO_COID": "交易單號(en)",
+      "PAYMENT_INFO_CUID": "幣別(en)",
+      "PAYMENT_INFO_PRODUCT": "商品名稱(en)",
+      "PAYMENT_SELECT": "請選擇付款方式：(en)"
+    },
+    "zh_TW": {
+      "PA_GROUP_BANK": "金融類",
+      "PA_GROUP_PINCODE": "點數卡",
+      "PA_GROUP_TELECO": "電信帳單",
+      "PA_GROUP_WALLET": "電子錢包",
+      "PAYMENT_CONFIRM": "確認付款",
+      "PAYMENT_INFO": "本次欲支付的內容：",
+      "PAYMENT_INFO_AMOUNT": "金額",
+      "PAYMENT_INFO_COID": "交易單號",
+      "PAYMENT_INFO_CUID": "幣別",
+      "PAYMENT_INFO_PRODUCT": "商品名稱",
+      "PAYMENT_SELECT": "請選擇付款方式："
+    }
+  },
+  "Background": ""
+}

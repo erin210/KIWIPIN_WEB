@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+//path
+$img-path: '../img/';
+$img-lang: '../img/lang/zh_TW/';
+
+body {
+    font-family: 'Inter', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    /* 啟用平滑滾動 */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+body * {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body :lang(zh) {
+    font-family: 'Inter', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+}
+
+//basic
+body {
+    // background-color: #f00;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: $dark;
+
+    @include breakpoint('md', 'max') {
+        font-size: 14px;
+    }
+}
+
+h1,
+.pageTitle {
+    font-size: 72px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    line-height: 1.2;
+
+    @include breakpoint('lg', 'max') {
+        font-size: 5.5vw;
+    }
+
+    @include breakpoint('md', 'max') {
+        font-size: 32px;
+    }
+}
+
+h2,
+.h2 {
+    font-size: 46px;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+
+    b {
+        display: inline-block;
+    }
+
+    .title_line {
+        position: relative;
+        display: inline-block;
+        z-index: 1;
+        margin-left: .15em;
+
+        &::before {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            width: 100%;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: $b-60;
+            left: 0;
+            bottom: .2em;
+        }
+    }
+
+    @include breakpoint('sm', 'max') {
+        font-size: 24px;
+
+        .title_line {
+            &::before {
+                height: 10px;
+            }
+
+        }
+    }
+}
+
+h3,
+.h3 {
+    // font-size: 32px;
+    font-size: clamp(22px, 2.45vw, 32px);
+    // letter-spacing: 0.05em;
+    font-weight: 600;
+    line-height: 1.2;
+
+    @include breakpoint('sm', 'max') {
+        font-size: 22px;
+    }
+}
+
+h4,
+.h4 {
+    font-size: 24px;
+    letter-spacing: 0.05em;
+
+    @include breakpoint('sm', 'max') {
+        font-size: 18px;
+    }
+}
+
+h5,
+.h5 {
+    font-size: 20px;
+    letter-spacing: 0.05em;
+
+    @include breakpoint('sm', 'max') {
+        font-size: 14px;
+    }
+}
+
+
+
+article.inner_content {
+    color: black;
+    letter-spacing: 0.05em;
+    margin-bottom: .35em;
+
+    h4 {
+        margin-bottom: .35em;
+    }
+
+    h6 {
+        position: relative;
+        padding-left: 1.5em;
+
+        &:before {
+            position: absolute;
+            top: -.05em;
+            left: -.2em;
+            content: "・";
+            font-weight: bold;
+            font-size: 2em;
+            line-height: 1;
+        }
+    }
+
+    table {
+        margin-top: .5rem;
+        margin-left: 1.5em;
+
+        tr {
+
+            th:first-child,
+            td:first-child {
+                width: 4em;
+            }
+        }
+
+        th,
+        td {
+
+            p {
+                display: inline;
+            }
+        }
+
+        th {
+            text-align: left;
+            padding-bottom: .5em;
+
+            p {
+                display: inline;
+                padding-bottom: .2em;
+                border-bottom: 1px solid black;
+            }
+        }
+    }
+
+    .inner_txt {
+        margin-left: 1.5em;
+    }
+}
+
+label {
+    color: $logo_grey;
+    font-size: 18px;
+
+    @include breakpoint('sm', 'max') {
+        font-size: 16px;
+    }
+}
+
+input,
+select {
+    font-size: 18px;
+    font-weight: 400;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    color: $text_grey2;
+    letter-spacing: 0;
+
+    /*firefox*/
+    padding: 1.2em;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    margin-top: 14px;
+    background-color: $light_grey4;
+    margin-right: 0;
+    border: 1px solid $text_grey2;
+
+    &.input_error:focus-visible {
+        appearance: none;
+    }
+
+    &.input_error,
+    &.input_error:focus,
+    &.input_error:focus-visible {
+        outline: none;
+        border: 1px solid $error !important;
+    }
+
+    &::placeholder {
+        color: $text_grey2;
+    }
+
+    @include m___m {
+        font-size: 12px;
+    }
+}
+
+
+input[readonly],
+input:disabled {
+    color: $text_grey2 !important;
+    -webkit-text-fill-color: $text_grey2 !important;
+    background-color: $light_grey3;
+    border: 0;
+
+    @include m___m {
+        opacity: 1;
+    }
+}
+
+.wrong_msg {
+    font-size: 16px;
+    font-weight: 300;
+    padding: 0.5rem 0 0;
+    color: var(--error);
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 1rem;
+        margin-right: 0.3rem;
+    }
+
+    i {
+        padding-top: .2em;
+    }
+
+    @include m___m {
+        font-size: 14px;
+    }
+}
+
+.textMD {
+    font-size: 18px;
+
+    @include breakpoint('sm', 'max') {
+        font-size: 16px;
+    }
+}
+
+a.btn_start {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: fit-content;
+    padding: 1em;
+    border-radius: $b-60;
+    text-decoration: none;
+    color: $white;
+    background-image: linear-gradient(135deg, rgba(#333333, 0.55) 0%, #252424 100%);
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        background-image: linear-gradient(135deg, rgba(#333333, 0.55) 0%, #CBCBCB 26%, #252424 100%);
+        opacity: 0;
+    }
+
+    span {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        padding: 0 1em 0 3em;
+    }
+
+    i {
+        position: relative;
+        z-index: 2;
+        display: block;
+        margin-left: .5em;
+        padding: 8px;
+        background-color: $white;
+        border-radius: $b-60;
+
+        img {
+            display: block;
+            width: 30px;
+            height: 30px;
+            // width: 100%;
+            opacity: .65;
+            transform: rotate(-30deg);
+            @include tran(0.5s, ease);
+        }
+    }
+
+    &:hover {
+        background-image: linear-gradient(135deg, rgba(#333333, 0.55) 0%, #252424 100%);
+        color: $white;
+
+        i {
+            img {
+                transform: rotate(0deg);
+            }
+        }
+
+        &::before {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+    }
+
+    @include breakpoint('sm', 'max') {
+        span {
+            font-size: 14px;
+        }
+
+        i {
+            img {
+                width: 25px;
+                height: 25px;
+            }
+
+            padding: 5px;
+        }
+    }
+}

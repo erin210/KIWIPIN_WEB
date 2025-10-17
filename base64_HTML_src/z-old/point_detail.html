@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>KIWIPIN</title>
+    <!-- <script src="config.js"></script> -->
+    <!-- <script>
+        (function () {
+            var base = document.createElement('base');
+            base.href = window.pageBaseUrl;
+            document.head.appendChild(base);
+        })();
+    </script> -->
+    <!-- <script src="./assets/js/jquery-3.7.1.min.js"></script> -->
+    <base href="https://stage-www-page.kiwipin.com">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/css/select2.min.css" />
+    <link rel="stylesheet" href="./assets/css/www.css?v=241008">
+    <script src="./assets/js/lenis.min.js"></script>
+    <script src='./assets/js/jquery-3.6.0.min.js'></script>
+    <script src="./assets/js/jquery.sidr.min.js"></script>
+    <!-- <script src="./assets/js/wow.min.js"></script> -->
+    <script>
+        function initFunction(jsonObj) {
+            renderInfo(jsonObj);
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+    </header>
+    <main class="pages">
+        <h1 class="pageTitle">KIWI PIN</h1>
+        <section class="areaPage page_points_detail">
+            <div class="areaBg">
+                <div class="wrap">
+                    <div class="pointInfo">
+                        <div class="point_card">
+                            <h3 class="title">KIWI PIN 30000 POINTS</h3>
+                            <img src="assets/img/point_card300.png" alt="">
+                        </div>
+                        <form role="form" id="form" action="" method="post" target="_self" class="info"
+                            onsubmit="return check_submit();">
+                            <div class="box_top">
+                                <div class="price"><span>$30</span>USD</div>
+                                <div class="notice">
+                                    <span>【KIWI 100點儲值碼】序號乙組，支援貓咪大作戰、ＸＸ直播平台等，產品詳細內容請參考官方資料。<br>
+
+                                        此為虛擬商品，無實體物品。
+                                        儲值後的點數無法轉移至其他帳戶或兌換現金。
+                                        若您疑遇詐騙，請聯繫客服 service@kiwipin.com.tw 進行鎖定。</span>
+                                </div>
+                            </div>
+                            <div class="check_code">
+                                <label>請輸入Email</label>
+                                <input type="text" name="U_EMAIL" id="U_EMAIL" placeholder="請輸入Email">
+                                <div class="wrong_msg email_msg" style="display:none">
+                                    <img src="./assets/img/icon_error.svg" alt=""><small class="email_msg_text"></small>
+                                </div>
+                            </div>
+                            <div class="box_bt">
+                                <div class="terms custom-checkbox">
+                                    <input id="agree" type="checkbox">
+                                    <label for="agree">我已閱讀並同意
+                                        <a href="https://www.kiwipin.com/terms_of_service">會員服務條款</a>
+                                    </label>
+                                    <div class="wrong_msg agree_msg" style="display:none"><img
+                                            src="./assets/img/icon_error.svg" alt=""><small
+                                            class="agree_msg_text">請勾選同意</small></div>
+                                </div>
+                                <a href="javascript:void(0);" id="confirm" class="btn_start"
+                                    onclick="return check_submit();">
+                                    <span>確認購買</span><i><img src="./assets/img/i_btn_arrow.svg" alt=""></i>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="othersSwiper stickyEffect">
+                <div class="wrap">
+                    <b class="tagTitle">
+                        <h2><span class="title_line">相關產品</span></h2>
+                    </b>
+                    <form role="form" id="form" action="product" method="post" target="_self" class="form-payment">
+                        <input type="hidden" name="U_PURCHASE_AMOUNT" value="0" id="U_PURCHASE_AMOUNT">
+                    </form>
+                    <!-- swiper -->
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper card_wrapper">
+                            <div class="swiper-slide item">
+                                <a href="javascript:void(0)" onclick="purchase('100',this)">
+                                    <figure class="card">
+                                        <img src="assets/img/point_card100.png" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide item">
+                                <a href="javascript:void(0)" onclick="purchase('300',this)">
+                                    <figure class="card">
+                                        <img src="assets/img/point_card300.png" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide item">
+                                <a href="javascript:void(0)" onclick="purchase('500',this)">
+                                    <figure class="card">
+                                        <img src="assets/img/point_card500.png" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide item"><a href="javascript:void(0)" onclick="purchase('1000',this)">
+                                    <figure class="card">
+                                        <img src="assets/img/point_card1000.png" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide item"><a href="javascript:void(0)" onclick="purchase('2000',this)">
+                                    <figure class="card">
+                                        <img src="assets/img/point_card2000.png" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide item"><a href="javascript:void(0)" onclick="purchase('3000',this)">
+                                    <figure class="card">
+                                        <img src="assets/img/point_card3000.png" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide item"><a href="javascript:void(0)" onclick="purchase('4000',this)">
+                                    <figure class="card">
+                                        <img src="assets/img/point_card4000.png" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide item"><a href="javascript:void(0)" onclick="purchase('5000',this)">
+                                    <figure class="card">
+                                        <img src="assets/img/point_card5000.png" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide item">
+                                <a href="javascript:void(0)" onclick="purchase('10000',this)">
+                                    <figure class="card">
+                                        <img src="assets/img/point_card10000.png" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide item">
+                                <a href="javascript:void(0)" onclick="purchase('30000',this)">
+                                    <figure class="card">
+                                        <img src="assets/img/point_card30000.png" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <input type="hidden" name="U_PURCHASE_AMOUNT" value="0" id="U_PURCHASE_AMOUNT">
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    <footer></footer>
+    <!--popup_1-->
+    <!-- <div class="popup">
+        <div class="popup_wrapper">
+            <div class="content">
+                <img class="icon" src="assets/img/common/check_02.png" alt="">
+                <h1 class="title">購買成功</h1>
+                <h1 class="notice">恭喜你購買成功，謝謝!</h1>
+            </div>
+            <a href="javascript:void(0);" class="confirm btn_pop_close">確認</a>
+        </div>
+    </div> -->
+
+    <!-- <script src="./assets/js/wow.min.js"></script> -->
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/swiper-bundle.min.js"></script>
+
+    <script>
+
+
+        //----------------
+        // $(function () {
+        //     $('base').attr('href', apiUrl);
+        // });
+
+        $("header").load("./layout/header.html");
+        $("footer").load("./layout/footer.html");
+
+        //swiper
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 2,
+            spaceBetween: 18,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            // autoplay: {
+            //     delay: 3000,
+            //     disableOnInteraction: false,
+            // },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 18,
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                },
+            },
+        });
+        $(document).ready(function () {
+            $('.buyPoint').addClass('active');
+        });
+
+        // new WOW().init();
+        // $(window).on('scroll', function () {
+        //     handleFooterEffect();
+        // });
+
+
+        function renderInfo(json) {
+
+            $('base').attr('href', 'https://www-page.kiwipin.com');
+            $('#point_img').attr("src", "assets/img/point_card" + json.U_PURCHASE_AMOUNT + ".png");
+            $('.PIN_amount').text(json.U_PURCHASE_AMOUNT);
+            $('.USD_amount').text(json.U_PURCHASE_AMOUNT / 100);
+            Object.keys(json).forEach(function (k) {
+                var eleName = '#' + k;
+                //console.log(eleName + ' - ' + json[k]);
+                if ($(eleName).length <= 0) {
+                    appendElement_Input('#form', k, json[k]);
+                } else {
+                    $(eleName).val(json[k]);
+                }
+            });
+
+        }
+
+        function appendElement_Input(ele, name, value) {
+            var textHtml = '<input type="hidden" name="' + name + '"';
+            textHtml += ' value="' + value + '"';
+            textHtml += '/>';
+            $(ele).append(textHtml);
+        }
+        function renderInfo(json) {
+
+            Object.keys(json).forEach(function (k) {
+                var eleName = '#' + k;
+                //console.log(eleName + ' - ' + json[k]);
+                if ($(eleName).length <= 0) {
+                    appendElement_Input('#form', k, json[k]);
+                } else {
+                    $(eleName).val(json[k]);
+                }
+            });
+
+        }
+
+        function appendElement_Input(ele, name, value) {
+            var textHtml = '<input type="hidden" name="' + name + '"';
+            textHtml += ' value="' + value + '"';
+            textHtml += '/>';
+            $(ele).append(textHtml);
+        }
+
+        function purchase(amount, ele) {
+            $('#U_PURCHASE_AMOUNT').val(amount);
+
+            // console.log($('#U_PURCHASE_AMOUNT').val(amount));
+            document.getElementById('form').submit();
+
+        }
+        // 監聽驗證 op====================
+        // 驗證函數 - 是否空白
+        function validateEmptyField(selector, messageSelector, message) {
+            const value = $(selector).val();
+            if (value === "") {
+                $(messageSelector).text(message).parent().show(); // 顯示父層 .password_msg
+                $(selector).addClass('input_error');
+                return false;
+            } else {
+                $(messageSelector).parent().hide();
+                $(selector).removeClass('input_error');
+                return true;
+            }
+        }
+        // 驗證函數 - 是否符合格式 (Email)
+        function validateEmailFormat(selector, messageSelector) {
+            const value = $(selector).val();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // 簡單的 Email 格式檢查正則表達式
+            if (!emailPattern.test(value)) {
+                $(messageSelector).text("請輸入有效的 Email 格式").parent().show();
+                $(selector).addClass('input_error');
+                return false;
+            } else {
+                $(messageSelector).parent().hide();
+                $(selector).removeClass('input_error');
+                return true;
+            }
+        }
+        // 驗證函數 - checkbox是否打勾
+        function validateCheckbox(selector, messageSelector, message) {
+            const value = $(selector);
+            if (!value.is(':checked')) {
+                $(messageSelector).text(message).parent().show();
+                $(selector).addClass('input_error');
+                return false;
+            } else {
+                $(messageSelector).parent().hide();
+                $(selector).removeClass('input_error');
+                return true;
+            }
+        }
+        // 即時監聽驗證
+        // 會員帳號
+        $('#U_EMAIL').on('input', function () {
+            if (validateEmptyField('#U_EMAIL', '.email_msg_text', "請填寫Email"))
+                validateEmailFormat('#U_EMAIL', '.email_msg_text');
+        });
+        // 確認是否勾選
+        $('#agree').on('change', function () {
+            if (validateCheckbox('#agree', '.agree_msg_text', '請勾選同意')) {
+
+            }
+        });
+        //提交的驗證
+        function check_PASSWORD() {
+            let isValid = true;
+            if (!validateEmptyField('#U_EMAIL', '.email_msg_text', "請填寫EMail")) isValid = false;
+            if (isValid && !validateEmailFormat('#U_EMAIL', '.email_msg_text')) isValid = false;
+
+            if (!validateCheckbox('#agree', '.agree_msg_text', "請勾選同意")) isValid = false;
+
+            return isValid;
+        }
+
+        function check_submit() {
+            if (!check_PASSWORD()) {
+                return false;
+            }
+
+            document.getElementById('form').submit();
+            //return true;
+        }
+
+    </script>
+</body>
+
+</html>

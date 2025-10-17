@@ -1,0 +1,77 @@
+@charset "UTF-8";
+:root {
+  --primary: #8FB0DC;
+  --second: #EFEFEF;
+  --error: #DC8F8F;
+  --bg-image: url("");
+  --bg-image-mobile: url("");
+}
+
+/* 定義淡入動畫 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* 定義淡出動畫 */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/* 定義淡出陰影 */
+@keyframes fadeShadow {
+  from {
+    box-shadow: 0 0 0 rgba(18, 18, 18, 0);
+    opacity: 0.3;
+    filter: brightness(1);
+  }
+  to {
+    box-shadow: 0 0 10px rgba(18, 18, 18, 0.25);
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+}
+/* 定義淡出陰影 */
+@keyframes lightMove {
+  0%, 100% {
+    opacity: 0;
+    top: -100%;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+    top: 100%;
+  }
+}
+/* 定義從上往下 */
+@keyframes moveDown {
+  0% {
+    top: 40px;
+    opacity: 0;
+  }
+  100% {
+    top: 80px;
+    opacity: 1;
+    /* 顯示 */
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+.rotate img {
+  animation: rotate 0.3s forwards;
+}

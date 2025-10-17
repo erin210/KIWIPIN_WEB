@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include('layout/head') %>
+
+        <link rel="stylesheet" href="<%- cdn %>/assets/css/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <%- include('layout/header') %>
+        <main class="pages">
+            <h1 class="pageTitle">KIWI PIN</h1>
+            <section class="areaPage page_points_detail">
+                <div class="areaBg">
+                    <div class="wrap">
+                        <div class="pointInfo">
+                            <div class="point_card">
+                                <h3 class="title">KIWI PIN <span class="PIN_amount"></span> POINTS</h3>
+                                <img id="point_img" src="<%- cdn %>/assets/img/point_card300.png" alt="">
+                            </div>
+                            <form role="form" id="form" action="" method="post" target="_self" class="info">
+                                <div class="box_top">
+                                    <div class="price"><span class="USD_amount"></span>USD</div>
+                                    <div class="notice">
+                                        <span class="PRODUCT_DETAIL_BASE64">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="check_code">
+                                    <label class="U_EMAIL_TITLE">請輸入Email</label>
+                                    <input type="text" name="U_EMAIL" id="U_EMAIL" placeholder="請輸入Email"
+                                        class="U_EMAIL_TITLE">
+                                    <div class="wrong_msg email_msg" style="display:none">
+                                        <img src="<%- cdn %>/assets/img/icon_error.svg" alt="">
+                                        <small class="email_msg_text U_EMAIL_HINT_EMPTY">請填寫EMail</small>
+                                        <small class="email_msg_text U_EMAIL_HINT_ERROR">請輸入有效的
+                                            Email 格式</small>
+                                    </div>
+                                </div>
+                                <div class="box_bt">
+                                    <div class="terms custom-checkbox">
+                                        <span>
+                                            <input id="agree" type="checkbox">
+                                            <label for="agree"><b class="AGREE_LABEL">我已閱讀並同意</b>
+                                                <a href="terms_of_service" class="AGREE_LINK">會員服務條款</a>
+                                            </label>
+                                        </span>
+                                        <div class="wrong_msg agree_msg" style="display:none"><img
+                                                src="<%- cdn %>/assets/img/icon_error.svg" alt="">
+                                            <small class="agree_msg_text AGREE_LINK_HINT_EMPTY">請勾選同意</small>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0);" id="confirm" class="btn_start"
+                                        onclick="return check_submit();">
+                                        <span class="BTN_CHECK_BUY">確認購買</span><i><img
+                                                src="<%- cdn %>/assets/img/i_btn_arrow.svg" alt=""></i>
+                                    </a>
+                                </div>
+                                <input type="hidden" name="U_LANGUAGE" value="" id="U_LANGUAGE">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="othersSwiper stickyEffect">
+                    <div class="wrap">
+                        <b class="tagTitle">
+                            <h2><span class="title_line OTHER_TITLE">相關產品</span></h2>
+                        </b>
+                        <!-- <form role="form" id="form" action="product" method="post" target="_self" class="form-payment">
+                        <input type="hidden" name="U_PURCHASE_AMOUNT" value="0" id="U_PURCHASE_AMOUNT">
+                    </form> -->
+                        <!-- swiper -->
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper card_wrapper">
+                                <div class="swiper-slide item">
+                                    <a href="javascript:void(0)" onclick="purchase('100',this)">
+                                        <figure class="card">
+                                            <img src="<%- cdn %>/assets/img/point_card100.png" alt="">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide item">
+                                    <a href="javascript:void(0)" onclick="purchase('300',this)">
+                                        <figure class="card">
+                                            <img src="<%- cdn %>/assets/img/point_card300.png" alt="">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide item">
+                                    <a href="javascript:void(0)" onclick="purchase('500',this)">
+                                        <figure class="card">
+                                            <img src="<%- cdn %>/assets/img/point_card500.png" alt="">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide item"><a href="javascript:void(0)"
+                                        onclick="purchase('1000',this)">
+                                        <figure class="card">
+                                            <img src="<%- cdn %>/assets/img/point_card1000.png" alt="">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide item"><a href="javascript:void(0)"
+                                        onclick="purchase('2000',this)">
+                                        <figure class="card">
+                                            <img src="<%- cdn %>/assets/img/point_card2000.png" alt="">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide item"><a href="javascript:void(0)"
+                                        onclick="purchase('3000',this)">
+                                        <figure class="card">
+                                            <img src="<%- cdn %>/assets/img/point_card3000.png" alt="">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide item"><a href="javascript:void(0)"
+                                        onclick="purchase('4000',this)">
+                                        <figure class="card">
+                                            <img src="<%- cdn %>/assets/img/point_card4000.png" alt="">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide item"><a href="javascript:void(0)"
+                                        onclick="purchase('5000',this)">
+                                        <figure class="card">
+                                            <img src="<%- cdn %>/assets/img/point_card5000.png" alt="">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide item">
+                                    <a href="javascript:void(0)" onclick="purchase('10000',this)">
+                                        <figure class="card">
+                                            <img src="<%- cdn %>/assets/img/point_card10000.png" alt="">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide item">
+                                    <a href="javascript:void(0)" onclick="purchase('30000',this)">
+                                        <figure class="card">
+                                            <img src="<%- cdn %>/assets/img/point_card30000.png" alt="">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <!-- <input type="hidden" name="U_PURCHASE_AMOUNT" value="0" id="U_PURCHASE_AMOUNT"> -->
+                    </div>
+                </div>
+            </section>
+
+
+        </main>
+        <%- include('layout/footer') %>
+            <!--popup_1-->
+            <!-- <div class="popup">
+        <div class="popup_wrapper">
+            <div class="content">
+                <img class="icon" src="<%- cdn %>/assets/img/common/check_02.png" alt="">
+                <h1 class="title">購買成功</h1>
+                <h1 class="notice">恭喜你購買成功，謝謝!</h1>
+            </div>
+            <a href="javascript:void(0);" class="confirm btn_pop_close">確認</a>
+        </div>
+    </div> -->
+
+            <!-- <script src="<%- cdn %>/assets/js/wow.min.js"></script> -->
+            <script src="<%- cdn %>/assets/js/main.js"></script>
+            <script src="<%- cdn %>/assets/js/swiper-bundle.min.js"></script>
+
+            <script>
+
+
+                //----------------
+                // $(function () {
+                //     $('base').attr('href', apiUrl);
+                // });
+
+                // $("header").load("<%- cdn %>/layout/header.html");
+                // $("footer").load("<%- cdn %>/layout/footer.html");
+
+                $("#U_LANGUAGE").val(thisLang);
+                //swiper
+                var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 2,
+                    spaceBetween: 18,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    // autoplay: {
+                    //     delay: 3000,
+                    //     disableOnInteraction: false,
+                    // },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 18,
+                        },
+                        768: {
+                            slidesPerView: 4,
+                            spaceBetween: 20,
+                        },
+                        1024: {
+                            slidesPerView: 4,
+                            spaceBetween: 40,
+                        },
+                    },
+                });
+                $(document).ready(function () {
+                    $('.buyPoint').addClass('active');
+                });
+
+                // new WOW().init();
+                // $(window).on('scroll', function () {
+                //     handleFooterEffect();
+                // });
+
+
+                let srcJson = null;
+
+                function renderInfo(json) {
+                    srcJson = JSON.parse(JSON.stringify(json));
+
+                    // $('base').attr('href', 'https://www-page.kiwipin.com');
+                    $('#point_img').attr("src", "<%- cdn %>/assets/img/point_card" + json.U_PURCHASE_AMOUNT + ".png");
+                    $('.PIN_amount').text(json.U_PURCHASE_AMOUNT);
+                    $('.USD_amount').text('$' + json.U_PURCHASE_AMOUNT / 100);
+
+                    Object.keys(json).forEach(function (k) {
+                        var eleName = '#' + k;
+                        //console.log(eleName + ' - ' + json[k]);
+                        if ($(eleName).length <= 0) {
+                            appendElement_Input('#form', k, json[k]);
+                        } else {
+                            $(eleName).val(json[k]);
+                        }
+                    });
+
+
+                    initTranslation(json)//翻譯
+                    $('.PIN_amount').text(json.U_PURCHASE_AMOUNT);
+
+
+                }
+
+                function appendElement_Input(selector, key, value) {
+                    // 先刪除舊的 input，避免重複
+                    $(selector + ' input[name="' + key + '"]').remove();
+
+                    const input = $('<input>', {
+                        type: 'hidden',
+                        name: key,
+                        id: key,
+                        value: value
+                    });
+                    $(selector).append(input);
+                }
+
+                //頁面下方選別的點卡
+                // let srcJson = initFunction();
+                function purchase(amount, ele) {
+                    // $('#U_PURCHASE_AMOUNT').val(amount);
+                    const newJson = { ...srcJson };
+                    newJson.U_PURCHASE_AMOUNT = amount;
+                    //清空原本資料
+                    $('#form input').not('#U_EMAIL').val('');
+                    $('.PIN_amount').text('');
+                    $('.USD_amount').text('');
+                    $('#point_img').attr("src", '');
+                    $('html, body').animate({
+                        scrollTop: $('.areaPage').offset().top
+                    }, 500);
+
+                    // console.log(newJson);
+
+                    //重新呼叫
+                    initFunction(newJson);
+                    // console.log('傳給 initFunction 的資料:', newJson);
+
+                    //重新翻譯
+                    // initTranslation(newJson);
+                    // document.getElementById('form').submit();
+                }
+                // 監聽驗證 op====================
+                // 驗證函數 - 是否空白
+                function validateEmptyField(selector, messageSelector) {
+                    const value = $(selector).val();
+                    // console.log(value);
+
+                    // $(messageSelector).hide();
+                    if (value === '') {
+                        $(messageSelector).siblings('small').hide().parent('.wrong_msg').show(); // 顯示父層 .password_msg
+                        $(messageSelector).show();
+                        $(selector).addClass('input_error');
+                        return false;
+                    } else {
+                        $(messageSelector).parent('.wrong_msg').hide();
+                        // $(messageSelector).hide();
+                        $(selector).removeClass('input_error');
+                        return true;
+                    }
+                }
+                // 驗證函數 - 是否符合格式 (Email)
+                function validateEmailFormat(selector, messageSelector) {
+                    const value = $(selector).val();
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // 簡單的 Email 格式檢查正則表達式
+                    if (!emailPattern.test(value)) {
+                        $(messageSelector).siblings('small').hide().parent('.wrong_msg').show();
+                        $(messageSelector).show();
+                        $(selector).addClass('input_error');
+                        return false;
+                    } else {
+                        $(messageSelector).parent('.wrong_msg').hide();
+                        $(selector).removeClass('input_error');
+                        return true;
+                    }
+                }
+                // 驗證函數 - checkbox是否打勾
+                function validateCheckbox(selector, messageSelector) {
+                    const value = $(selector);
+                    if (!value.is(':checked')) {
+                        $(messageSelector).parent().show();
+                        $(selector).addClass('input_error');
+                        return false;
+                    } else {
+                        $(messageSelector).parent().hide();
+                        $(selector).removeClass('input_error');
+                        return true;
+                    }
+                }
+                // 即時監聽驗證
+                // 會員帳號
+                $('#U_EMAIL').on('input', function () {
+                    $('#U_EMAIL').removeClass('input_error');
+                    if (validateEmptyField('#U_EMAIL', '.U_EMAIL_HINT_EMPTY'))
+                        validateEmailFormat('#U_EMAIL', '.U_EMAIL_HINT_ERROR');
+                });
+                // 確認是否勾選
+                $('#agree').on('change', function () {
+                    if (validateCheckbox('#agree', '.agree_msg_text')) {
+
+                    }
+                });
+                //提交的驗證
+                function check_Email() {
+                    let isValid = true;
+                    if (!validateEmptyField('#U_EMAIL', '.U_EMAIL_HINT_EMPTY')) isValid = false;
+                    if (isValid && !validateEmailFormat('#U_EMAIL', '.U_EMAIL_HINT_ERROR')) isValid = false;
+
+                    if (!validateCheckbox('#agree', '.agree_msg_text', "請勾選同意")) isValid = false;
+
+                    return isValid;
+                }
+
+                function check_submit() {
+                    if (!check_Email()) {
+                        return false;
+                    }
+                    const form = document.getElementById('form');
+                    const formData = new FormData(form);
+
+                    // 測試用
+                    // for (let [key, value] of formData.entries()) {
+                    //     console.log(`${key}: ${value}`);
+                    // }
+
+                    //送出表單
+                    form.submit();
+                }
+
+            </script>
+            <!-- <script>
+                initFunction({ "Tpye": "PRODUCT", "U_PURCHASE_AMOUNT": "3000" });
+            </script> -->
+            <!-- <script>
+                initFunction({
+                    "Tpye": "PRODUCT", "U_PURCHASE_AMOUNT": "5000", "LanguageList": { "en_US": "English", "zh_TW": "\u4e2d\u6587" },
+                    "StringID": {
+                        "en_US": {
+                            "PRODUCT_DETAIL_BASE64": "WyBLSVdJIDxiIGNsYXNzPSJQSU5fYW1vdW50Ij48L2I+IFBvaW50cyBUb3AtdXAgQ29kZSBdIE9uZSBTZXJpYWwgQ29kZSBJbmNsdWRlZC4KPHVsPgogICAgPGxpPlRoaXMgaXMgYSB2aXJ0dWFsIHByb2R1Y3Qgd2l0aCBubyBwaHlzaWNhbCBpdGVtLjwvbGk+CiAgICA8bGk+UG9pbnRzIGNhbm5vdCBiZSBQb2ludHMgdGhhdCBoYXZlIGFscmVhZHkgYmVlbiBjcmVkaXRlZCBjYW5ub3QgYmUgdHJhbnNmZXJyZWQgdG8gb3RoZXIgYWNjb3VudHMgb3IgZXhjaGFuZ2VkIGZvcgogICAgICAgIGNhc2guPC9saT4KICAgIDxsaT5JZiB5b3Ugc3VzcGVjdCBmcmF1ZCwgcGxlYXNlIDxhIGhyZWY9Im1haWx0bzpzZXJ2aWNlQGtpd2lwaW4uY29tIj5jb250YWN0IGN1c3RvbWVyIHNlcnZpY2U8L2E+CiAgICAgICAgKHNlcnZpY2VAa2l3aXBpbi5jb20pIHRvIHJlcXVlc3QgYSBsb2NrLjwvbGk+CjwvdWw+",
+                            "U_EMAIL_TITLE": "Please enter your Email",
+                            "U_EMAIL_HINT_EMPTY": "Please fill in your Email",
+                            "U_EMAIL_HINT_ERROR": "Please enter a valid Email format",
+                            "AGREE_LABEL": "I have read and agree",
+                            "AGREE_LINK": "Terms of Service",
+                            "AGREE_LINK_HINT_EMPTY": "Please check to agree",
+                            "BTN_CHECK_BUY": "Purchase",
+                            "OTHER_TITLE": "Related Products"
+                        },
+                        "zh_TW": {
+                            "PRODUCT_DETAIL_BASE64": "44CQS0lXSSA8YiBjbGFzcz0iUElOX2Ftb3VudCI+PC9iPum7nuWEsuWAvOeivOOAkeW6j+iZn+S5mee1hOOAggo8dWw+CiAgICA8bGk+5q2k54K66Jmb5pOs5ZWG5ZOB77yM54Sh5a+m6auU54mp5ZOB44CCPC9saT4KICAgIDxsaT7lhLLlgLzlvoznmoTpu57mlbjnhKHms5XovYnnp7voh7Plhbbku5bluLPmiLbmiJblhYzmj5vnj77ph5HjgII8L2xpPgogICAgPGxpPuiLpeaCqOeWkemBh+ipkOmome+8jOiriyA8YSBocmVmPSJtYWlsdG86c2VydmljZUBraXdpcGluLmNvbSI+6IGv57Wh5a6i5pyNPC9hPiAoc2VydmljZUBraXdpcGluLmNvbSkg6YCy6KGM6Y6W5a6a44CCPC9saT4KPC91bD4=",
+                            "U_EMAIL_TITLE": "請輸入Email",
+                            "U_EMAIL_HINT_EMPTY": "請填寫EMail",
+                            "U_EMAIL_HINT_ERROR": "請輸入有效的 Email 格式",
+                            "AGREE_LABEL": "我已閱讀並同意",
+                            "AGREE_LINK": "會員服務條款",
+                            "AGREE_LINK_HINT_EMPTY": "請勾選同意",
+                            "BTN_CHECK_BUY": "確認購買",
+                            "OTHER_TITLE": "相關產品"
+                        }
+                    }
+                });
+            </script> -->
+</body>
+
+</html>

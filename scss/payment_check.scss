@@ -1,0 +1,478 @@
+@import "all_mixin/_breakpoints";
+@import "all_mixin/_mixins_erin";
+@import "all_mixin/_mixins_transforms";
+@import "all_mixin/_variable";
+
+/* -------------------
+   Base Layout
+-------------------- */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $dark;
+    flex-grow: 1;
+}
+
+/* -------------------
+   Button: .btn_start
+-------------------- */
+a.btn_start {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: fit-content;
+    padding: 1em;
+    border-radius: $b-60;
+    text-decoration: none;
+    color: $white;
+    background-image: linear-gradient(135deg, rgba(#333333, 0.55) 0%, #252424 100%);
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background-image: linear-gradient(135deg, rgba(#333333, 0.55) 0%, #CBCBCB 26%, #252424 100%);
+        opacity: 0;
+    }
+
+    span {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        padding: 0 1em 0 3em;
+    }
+
+    i {
+        position: relative;
+        z-index: 2;
+        display: block;
+        margin-left: .5em;
+        padding: 8px;
+        background-color: $white;
+        border-radius: $b-60;
+
+        img {
+            display: block;
+            width: 30px;
+            height: 30px;
+            opacity: .65;
+            transform: rotate(-30deg);
+
+            @include tran(0.5s, ease);
+        }
+    }
+
+    &:hover {
+        color: $white;
+
+        i img {
+            transform: rotate(0deg);
+        }
+
+        &::before {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+    }
+
+    @include breakpoint("sm", "max") {
+        span {
+            font-size: 14px;
+        }
+
+        i {
+            padding: 5px;
+
+            img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}
+
+/* -------------------
+   Pages Layout
+-------------------- */
+.pages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+
+    // height: 100svh;
+    // border: 1px solid red;
+    margin-top: 90px;
+    margin-bottom: 30px;
+
+    @include breakpoint("xl", "max") {
+        padding: 0 3%;
+    }
+
+
+    @include breakpoint("md", "max") {
+        padding: 0 12px;
+    }
+}
+
+/* -------------------
+   Area Page
+-------------------- */
+.areaPage {
+    width: 100%;
+
+    .wrap {
+        width: 1320px;
+        margin: 0 auto;
+        background-color: $bg_grey;
+        border-radius: $b-36;
+        box-sizing: border-box;
+
+        @include breakpoint("xl", "max") {
+            width: 100%;
+            margin: 0;
+        }
+
+
+        // &.wrap_s {
+        //     width: 1200px;
+
+        //     @include breakpoint("lg", "max") {
+        //         width: 100%;
+        //     }
+        // }
+
+        .tagTitle h2 {
+            margin-left: 30px;
+            margin-bottom: 30px;
+
+            @include breakpoint("md", "max") {
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+
+        padding: 70px 60px;
+
+        @include breakpoint("md", "max") {
+            padding: 40px 12px;
+        }
+
+
+        .pageInfoBox {
+            width: 800px;
+            margin: 0 auto;
+
+            @include breakpoint("md", "max") {
+                width: 100%;
+            }
+
+
+            ul.stepBar {
+                display: flex;
+                justify-content: center;
+
+                li {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 0 9px;
+
+                    span {
+                        width: 50px;
+                        height: 50px;
+                        font-size: 20px;
+                        background-color: $light_grey3;
+                        display: inline-block;
+                        color: $text_grey2;
+                        text-align: center;
+                        padding: .7em;
+                        border-radius: $b-60;
+                        box-sizing: border-box;
+                        margin-bottom: 15px;
+                    }
+
+                    b {
+                        width: 100%;
+                        display: inline-block;
+                        text-align: center;
+                        font-size: 16px;
+                        color: $text_grey2;
+                    }
+
+                    i {
+                        width: 65px;
+                        height: 3px;
+                        background-color: $dark;
+                        display: block;
+                        margin-top: 25px;
+                        border-radius: 10px;
+                    }
+
+                    &.active {
+                        span {
+                            color: $white;
+                            background-color: $dark;
+                        }
+
+                        b {
+                            color: $dark;
+                        }
+
+                        i {
+                            background-color: $light_grey3;
+                        }
+                    }
+                }
+
+                @include breakpoint("sm", "max") {
+                    li {
+                        span {
+                            font-size: 18px;
+                            padding: .85em;
+                        }
+
+                        b {
+                            font-size: 12px;
+                        }
+
+                        i {
+                            width: 8vw;
+                        }
+                    }
+                }
+            }
+        }
+
+        .result_message {
+            text-align: center;
+
+            span {
+                display: block;
+                width: 100%;
+                font-size: 34px;
+                font-weight: 600;
+                color: var(--primary);
+                margin-top: .5em;
+                letter-spacing: 0.05em;
+            }
+
+            @include breakpoint("md", "max") {
+                margin-top: 5vw;
+            }
+
+
+            @include breakpoint("xs", "max") {
+                span {
+                    font-size: 20px;
+                }
+
+                #Notify_Icon {
+                    width: 17vw;
+                }
+            }
+
+
+            @include landscape {
+                margin-top: 0;
+
+                span {
+                    font-size: 20px;
+                }
+
+                #Notify_Icon {
+                    width: 66px;
+                }
+            }
+        }
+
+        .result_info {
+            margin: 70px 0;
+
+            @include breakpoint("sm", "max") {
+                margin: 10vw 0;
+            }
+
+
+            // @include landscape {
+            //     margin: 30px 0;
+            // }
+
+            .item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1em 10%;
+                background-color: $light_grey4;
+                color: $logo_grey;
+                height: 25px;
+                margin-bottom: 1em;
+                font-size: 18px;
+
+                @include border-radius(10px);
+                @include breakpoint("sm", "max") {
+                    padding: .45em 10%;
+                    margin-bottom: .6em;
+                }
+
+
+                div {
+                    width: 100%;
+                    text-align: left;
+                    font-size: 18px;
+
+                    &.title {
+                        flex-basis: 45%;
+                    }
+
+                    &.content span {
+                        margin-right: .2em;
+                    }
+
+                    .timetxt {
+                        color: $text_grey2;
+                    }
+
+                    @include breakpoint("sm", "max") {
+                        font-size: 14px;
+
+                        h1.content {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+
+            &.success_info .item:first-child .content {
+                color: var(--primary) !important;
+            }
+
+            &.error_info .item:first-child .content {
+                color: var(--error) !important;
+            }
+        }
+
+        a.btn_start {
+            margin: 0 auto;
+        }
+    }
+
+    .infoItems {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 20px 20px 12px 20px;
+
+        .newsDate {
+            width: 33%;
+            display: flex;
+            align-items: center;
+            color: $logo_grey;
+            margin-bottom: .8em;
+            padding: .5em 0;
+
+            b {
+                letter-spacing: 0.05em;
+            }
+
+            img {
+                width: 1.5em;
+                margin-right: .5em;
+            }
+        }
+
+        @include breakpoint("sm", "max") {
+            padding: 0 12px 7px;
+        }
+    }
+
+    // @include breakpoint("md", "max") {
+    //     padding-top: 105px;
+    // }
+}
+
+/* -------------------
+   Footer
+-------------------- */
+footer {
+    // position: fixed;
+    // bottom: 0;
+    width: 100%;
+    background-color: $dark;
+    padding-top: 34px;
+    text-align: center;
+    color: $white;
+
+    i.logo {
+        display: block;
+        width: 100%;
+        padding-bottom: 19px;
+    }
+
+    h5 {
+        margin-bottom: 19px;
+        font-weight: 300;
+
+        i {
+            display: inline-block;
+            margin-right: .5em;
+        }
+
+        @include breakpoint("sm", "max") {
+            font-size: 12px;
+            padding: 0 12px;
+        }
+    }
+
+    .copyright {
+        color: $logo_grey;
+        text-align: center;
+        border-top: 1px solid $dark-lighten;
+        padding: 1em 0;
+
+        @include breakpoint("xl", "max") {
+            width: 100%;
+        }
+
+
+        @include breakpoint("sm", "max") {
+            justify-content: center;
+            flex-direction: column;
+            padding: 11px 0;
+            margin-top: 23px;
+            font-size: 12px;
+            order: 3;
+
+            & > div {
+                width: 100%;
+                margin: 0;
+
+                a {
+                    display: block;
+                    line-height: 2;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    @include breakpoint("md", "max") {
+        padding: 30px 0 0;
+
+        i.logo {
+            padding-bottom: 32px;
+        }
+
+        h5 {
+            line-height: 1.5;
+        }
+    }
+}

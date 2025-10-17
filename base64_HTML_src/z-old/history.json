@@ -1,0 +1,33 @@
+{
+        "Tpye": "HISTORY",
+        "PAGE_COUNT": "1",
+        "PAGE_SELECT": 1,
+        "WALLET_HISTORY": [
+            {
+                    "serial": 1,
+                    "CID_NAME": "XX遊戲儲值",
+                    "COID": "KW20240815041007",
+                    "PRODUCT_NAME": "升級鑽石寶物50顆",
+                    "AMOUNT_BEFORE": "0",
+                    "AMOUNT_ADD": "500",
+                    "AMOUNT_USE": "0",
+                    "AMOUNT_ADD_USE": "-500",
+                    "AMOUNT_AFTER": "100",
+                    "CreateTime_at": "2024-08-15 12:11:06",
+                    "CreateDate_at": "2024-08-15"
+            },
+                {
+                    "serial": 2,
+                    "CID_NAME": "KIWI Test",
+                    "COID": "KW20240815041007",
+                    "PRODUCT_NAME": "KIWI \u9322\u5305 100 \u9ede",
+                    "AMOUNT_BEFORE": "0",
+                    "AMOUNT_ADD": "1000",
+                    "AMOUNT_USE": "0",
+                    "AMOUNT_ADD_USE": "1000",
+                    "AMOUNT_AFTER": "900",
+                    "CreateTime_at": "2024-08-15 12:11:06",
+                    "CreateDate_at": "2024-08-15"
+                }
+        ]
+}

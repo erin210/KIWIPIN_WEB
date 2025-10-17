@@ -1,0 +1,34 @@
+{
+    "liveServer.settings.port": 5504,
+    "editor.wordWrap": "on",
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "[css]": {
+      "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "files.autoSave": "afterDelay",
+    "editor.minimap.enabled": false,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "liveSassCompile.settings.autoprefix": [],
+    "liveSassCompile.settings.formats":[
+        {
+          "format": "compressed",
+          "savePath": "/assets/css",
+          "map": true,
+          "editor.tabSize": 2,
+          "editor.insertSpaces": true
+        }
+    ],
+    "[scss]": {
+      "editor.defaultFormatter": "sasa.vscode-sass-format"
+    },
+    "sass.andStared": [
+  
+      "active",
+      "focus",
+      "hover",
+      "nth-child"
+    ],
+    "compile-hero.disable-compile-files-on-did-save-code": false
+}

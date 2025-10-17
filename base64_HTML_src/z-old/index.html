@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>KIWIPIN</title>
+    <!-- <script src="config.js"></script> -->
+    <!-- <script>
+        (function () {
+            var base = document.createElement('base');
+            base.href = window.pageBaseUrl;
+            document.head.appendChild(base);
+        })();
+    </script> -->
+    <base href="https://stage-www-page.kiwipin.com">
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="./assets/css/select2.min.css" />
+    <link rel="stylesheet" href="./assets/css/animate.min.css" />
+    <link rel="stylesheet" href="./assets/css/www.css?v=241008">
+    <script src="./assets/js/lenis.min.js"></script>
+    <script src='./assets/js/jquery-3.6.0.min.js'></script>
+    <script src="./assets/js/jquery.sidr.min.js"></script>
+    <script src="./assets/js/wow.min.js"></script>
+
+    <script>
+        function initFunction(jsonObj) {
+            renderInfo(jsonObj);
+        }
+    </script>
+</head>
+
+<body id="scene">
+    <header>
+
+    </header>
+    <main class="index">
+        <section class="areaMainBN">
+            <div class="wrap">
+                <div>
+                    <h1 class="pageTitle">From KIWI PIN<br>to your WALLET</h1>
+                    <p>智慧充值、便捷支付，Kiwi PIN引領您開啟全旅程，<br>開啟數位點數購買與錢包管理新體驗！</p>
+                    <a href="./wallet_mem_info.html" target="_blank" class="btn_start">
+                        <span>Get started</span><i><img src="./assets/img/i_btn_arrow.svg" alt=""></i>
+                    </a>
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </section>
+        <section class="areaService">
+            <div class="areaBg">
+                <div class="wrap">
+
+                    <h2>
+                        <span class="title_line">貼近需求</span>・提升價值
+                    </h2>
+                    <ul class="serviceList">
+                        <li>
+                            <span>01</span>
+                            <h4><img src="./assets/img/i_card.svg" alt="">多種支付方式</h4>
+                            <p>信用卡、微信支付、超商代收付、銀行轉帳等， 以滿足不同使用者的需求。</p>
+                        </li>
+                        <li>
+                            <span>02</span>
+                            <h4><img src="./assets/img/i_security.svg" alt="">支付安全性保障
+                            </h4>
+                            <p>高度安全性的支付保障措施，全程SSL加密， 以確保用戶交易過程數據的安全性</p>
+                        </li>
+                        <li>
+                            <span>03</span>
+                            <h4><img src="./assets/img/i_paper.svg" alt="">結算管理</h4>
+                            <p>完善的結算管理系統，讓數位內容提供者 能夠方便地查看自己的收益和交易紀錄， 並快速地進行結算。</p>
+                        </li>
+                        <li>
+                            <span>04</span>
+                            <h4><img src="./assets/img/i_cart.svg" alt="">購物車系統</h4>
+                            <p>方便使用者選購內容，並且支援使用者 隨時增減購物車內容。</p>
+                        </li>
+                        <li>
+                            <span>05</span>
+                            <h4><img src="./assets/img/i_person.svg" alt="">會員管理</h4>
+                            <p>使用者可以輕鬆註冊、登入和管理自己 的帳戶資訊，同時也方便數位內容提供者 管理自己的會員資料。</p>
+                        </li>
+                        <li>
+                            <span>06</span>
+                            <h4><img src="./assets/img/i_setting.svg" alt="">技術支援</h4>
+                            <p>平台需要提供完善的技術支援服務，幫助數位 內容提供者解決技術問題和疑難，以保證內容 可以正常運作。</p>
+                        </li>
+                    </ul>
+
+                    <div class="partner">
+                        <h2>
+                            與全球領先品牌・<span class="title_line">攜手同行</span>
+                        </h2>
+                        <ul class="partnerList">
+                            <li><img src="./assets/img/g-alipay.svg" alt=""><b><img src="./assets/img/logo-alipay.svg"
+                                        alt=""></b>
+                            </li>
+                            <li><img src="./assets/img/g-4gold.svg" alt=""> <b><img src="./assets/img/logo-4gold.svg"
+                                        alt=""></b>
+                            </li>
+                            <li><img src="./assets/img/g-wechat.svg" alt=""><b><img src="./assets/img/logo-wechat.svg"
+                                        alt=""></b>
+                            </li>
+                            <li><img src="./assets/img/g-master.svg" alt=""><b><img src="./assets/img/logo-master.svg"
+                                        alt=""></b>
+                            </li>
+                            <li><img src="./assets/img/g-visa.svg" alt=""><b><img src="./assets/img/logo-visa.svg"
+                                        alt=""></b>
+                            </li>
+                            <li><img src="./assets/img/g-jcb.svg" alt=""><b><img src="./assets/img/logo-jcb.svg"
+                                        alt=""></b>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="stickyEffect">
+                <h2>
+                    讓支付<span class="title_line">更簡單</span>・生活<span class="title_line">更輕鬆</span>
+                </h2>
+                <div class="itemList item01">
+                    <h3>The first choice</h3>
+                    <h4>跨境支付第一首選</h4>
+                    <p>KIWIPIN
+                        是一家香港的數位內容點數平台，於後疫情時代成立。透過提供點數及跨境支付的方式，讓使用者可以在平台上購買電子遊戲、音樂、電子書等數位內容，不受限於支付型態及國界的壁壘。</p>
+                </div>
+            </div>
+        </section>
+        <section class="areaInformation" id="topic_about">
+            <div class="areaBg">
+                <div class="wrap wrap_s">
+                    <div class="infoItem">
+                        <div class="sticky_pic wow fadeInUp" data-wow-duration="1s">
+                            <img src="./assets/img/sticky_pic01.svg" alt="">
+                        </div>
+                        <div class="itemList item02">
+                            <h3>Customer service</h3>
+                            <h4>全方位的客戶服務</h4>
+                            <p>KIWIPIN也與多家大型網路服務業者合作，擴大點數的使用範圍，讓使用者可以在不同的網路服務上使用點數，是串連全球數位娛樂服務首選。</p>
+                        </div>
+                        <div class="itemList item03">
+                            <h3>Leading brand</h3>
+                            <h4>金流服務領導品牌</h4>
+                            <p>我們的願景是成為全球領先的數位內容提供者金流服務平台，透過持續的技術創新與用戶體驗的優化，為全球數位內容提供者提供更高效、更便捷、更智能的金流解決方案，並且為他們創造更多商業價值。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stickyEffect">
+                <h2>
+                    從<span class="title_line">儲值到支付</span>・隨心運用</span>
+                </h2>
+                <h5>KIWI錢包結合點數儲值與支付功能，開啟數位點數購買與錢包管理的新體驗，<br>
+                    為您提供高效、安全的金流解決方案。</h5>
+                <a href="./wallet_mem_info.html" target="_blank" class="btn_start">
+                    <span>Get started</span><i><img src="./assets/img/i_btn_arrow.svg" alt=""></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="areaOther">
+            <div class="pic_other"></div>
+            <div class="wrap wow fadeInUp" data-wow-duration="1s">
+                <div class="stickyEffect">
+                    <div class="otherItem item01">
+                        <div>
+                            <h3>Supports multiple currencies</h3>
+                            <h4>支援不同幣別</h4>
+                            <p>我們的虛擬錢包支援各地區不同幣別的即時支付與購點，讓全球用戶能夠輕鬆使用當地貨幣進行交易，無論是儲值還是消費，都能實現無縫對接。</p>
+                        </div>
+                        <div>
+                            <img src="./assets/img/pic_other_item01.svg" alt="">
+                            <div class="marquee">
+                                <div><img src="./assets/img/pic_other_flags.svg" alt=""></div>
+                                <div><img src="./assets/img/pic_other_flags.svg" alt=""></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="otherItem item02">
+                    <div>
+                        <h3>Currency stability</h3>
+                        <h4>確保幣值穩定</h4>
+                        <p>錢包點數均以USD作為唯一幣值進行計價，確保了幣值的穩定性，並簡化了跨國支付的過程，使交易過程穩定與簡便性。</p>
+                    </div>
+                    <div>
+                        <img src="./assets/img/pic_other_item02.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="areaQA" id="topic_qa">
+            <div class="wrap wrap_s wow fadeInUp" data-wow-duration="1s">
+                <h2>
+                    服務指南・<span class="title_line">常見問題</span>
+                </h2>
+                <h5>如有其他疑問，請將您的問題發送至：<span>service@kiwipin.com，</span>我們會儘快為您提供協助。</h5>
+                <div class="qaList">
+                    <h4>・常見問題</h4>
+                    <ul>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">Kiwi Pin 和 Kiwi Wallet有什麼不同？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <h6>➜ Kiwi Pin：</h6>
+                                <ol>
+                                    <li>是一次性點數卡，內含一組儲值密碼(pincode)及卡片序號，可用於特定平台的服務兌換。</li>
+                                    <li>無需建立帳戶即可使用，購買後即可輸入儲值密碼(pincode)完成服務兌換。</li>
+                                </ol>
+                                <h6>➜ Kiwi Wallet：</h6>
+                                <ol>
+                                    <li>是一個數位點數錢包，用於儲存和管理您的 Kiwi Pin 點數。</li>
+                                    <li>支援累積點數和直接支付，適合經常性使用點數的用戶。</li>
+                                    <li>提供進階功能，例如：查看交易記錄、儲值點數。</li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">Kiwi Pin 和 Kiwi Wallet 各有什麼特色？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <h6>➜ Kiwi Pin：</h6>
+                                <ol>
+                                    <li>單次購買，立即可用。</li>
+                                    <li>不需建立帳戶，直接輸入儲值密碼(pincode)即可兌換。</li>
+                                    <li>適合用於送禮或臨時購買需求。</li>
+                                </ol>
+                                <h6>➜ Kiwi Wallet：</h6>
+                                <ol>
+                                    <li>集中管理點數資產，避免kiwipin點數遺失。</li>
+                                    <li>可累積多筆儲值、殘餘點數，讓點數靈活應用。</li>
+                                    <li>提供透明的交易記錄，方便用戶掌握使用情況。</li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">Kiwi Pin 適合什麼情境？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>當您需要快速購買點數，或僅需單次使用某平台的服務時，Kiwi Pin 是最便利的選擇，無需綁定帳戶，購買後輸入儲值密碼(pincode)立即生效。
+                                    例如：您可以購買一組 Kiwi Pin 儲值密碼(pincode)並直接兌換到遊戲帳戶中。</p>
+                                <a href="./point_add.html" target="_blank">購買連結</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">Kiwi Wallet 適合什麼情境？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>如果您經常購買或使用 Kiwi Pin 點數，並希望集中管理這些點數，Kiwi Wallet 是最佳選擇。它適合希望追蹤點數使用情況、累積儲值，或需要靈活支付的用戶。
+                                </p>
+                                <a href="./member_reg.html" target="_blank">去註冊</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">Kiwi Pin 能不能儲值到 Kiwi Wallet？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>可以，參照以下操作。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">是否能從Kiwi Wallet 產出 Kiwi
+                                    Pin的儲值密碼？</span><i class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>不可以，Kiwi Wallet 無法直接產出 Kiwi Pin 儲值密碼(pincode)。
+                                    用戶需要透過錢包裡的儲值功能購買 Kiwi Pin 點數新增到錢包中使用，或從<a href="./point_add.html"
+                                        target="_blank">官方網站</a>、<a href="https://4gold.viu.com/shop?category=kiwi"
+                                        target="_blank">經銷通路</a> 購得Kiwi
+                                    Pin點數。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">Kiwi Pin 有效期限和 Kiwi Wallet
+                                    有什麼差別？</span><i class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <h6>➜ Kiwi Pin：</h6>
+                                <p>具有效期限一年，用戶需在指定時間內兌換點數。</p>
+                                <h6>➜ Kiwi Wallet：</h6>
+                                <p>點數一旦儲值進錢包後，將依平台規定繼續累積且無特定使用期限限制。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">如果我購買了 Kiwi Pin，是否一定需要註冊 Kiwi
+                                    Wallet？</span><i class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>不一定。Kiwi Pin 儲值密碼(pincode)可直接用於特定平台的點數兌換，無需 Kiwi Wallet 即可使用。</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <h4>・防詐</h4>
+                    <ul>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">常見詐騙手法有哪些？</span><i class="qa_arrow"><img
+                                        src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <ol>
+                                    <li>使用偽造網站吸引用戶以超低價購買點數卡。</li>
+                                    <li>詐騙者會假冒客服要求提供點數卡序號或付款憑證。</li>
+                                    <li>聲稱有問題需要退款，但要求提供銀行資料或額外付款。</li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">如果收到懷疑是詐騙的訊息怎麼辦？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>不要點擊任何可疑連結或提供個人資料。
+                                    立即 <a href="mailto:service@kiwipin.com">聯絡客服</a>
+                                    (service@kiwipin.com)，提供詳細的可疑訊息或內容，我們將協助處理。
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">購買點數卡時需要注意什麼？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>務必確認所購點數卡是否適用於您的需求，例如指定平台或地區的使用限制。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">是否能退貨或退款？</span><i class="qa_arrow"><img
+                                        src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>點數卡屬於數位商品，一經發送即無法退貨或退款，請確認後再購買。</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <h4>・點數</h4>
+                    <ul>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">如何購買KIWI點數卡？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <ol>
+                                    <li>至官方網站「 <a href="./point_add.html" target="_blank">購買點數</a> 」頁，並選擇所需的點數卡面額。</li>
+                                    <li>輸入收件電子信箱</li>
+                                    <li>選擇支付方式並完成付款</li>
+                                    <li>點數卡儲值密碼(pincode)將自動發送到您的填寫的信箱。</li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">支援哪些支付方式？</span><i class="qa_arrow"><img
+                                        src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>提供多種支付方式，包括信用卡（Visa、Mastercard、jcb）、微信、支付寶</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">購買後多久能收到儲值密碼(pincode)？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>在完成付款後，儲值密碼(pincode)通常會在數分鐘內自動發送至您的電子郵件。如果有延遲，請 <a
+                                        href="mailto:service@kiwipin.com">聯絡客服</a> (service@kiwipin.com)協助查詢。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">如果我購買了錯誤的點數卡怎麼辦？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>點數卡屬於數位商品，一經發送無法更換或退貨，若購買錯誤可以儲值進kiwi wallet，請在購買前務必確認所需的類型與金額。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">儲值密碼(pincode)未收到怎麼辦？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <ol>
+                                    <li>先檢查垃圾郵件夾，確認是否被錯誤分類。</li>
+                                    <li>確認付款已成功完成，並檢查是否輸入正確的電子郵件地址。</li>
+                                    <li>如果問題仍未解決，請 <a href="mailto:service@kiwipin.com">聯絡客服</a>
+                                        (service@kiwipin.com)，提供您的訂單編號協助查詢。
+                                    </li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">如何查詢點數卡交易記錄？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+
+                            </div>
+                        </li>
+                    </ul>
+                    <h4>・錢包</h4>
+                    <ul>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">什麼是點數錢包(Kiwi Wallet)？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>點數錢包是一個數位工具，可直接至各合作平台進行儲值，讓您能夠集中管理購買的kiwi點數，方便快速查看餘額、交易紀錄。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">如何建立點數錢包帳戶？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <ol>
+                                    <li>點擊官網導航列的「KIWI Wallet」按鈕，或是(<a href="./wallet_mem_info.html"
+                                            target="_blank">錢包網址</a>)，填寫基本資訊（電子郵件、密碼等）。</li>
+                                    <li>驗證電子郵件後即可成功開通點數錢包帳戶。</li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">是否可以將錢包內的點數轉給其他用戶？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>否。目前 Kiwi Wallet 不支援點數轉移功能，錢包內的點數僅限於帳戶本人使用，無法轉移至其他用戶或帳戶。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">如果忘記帳號或密碼該怎麼辦？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <ol>
+                                    <li>點擊登入頁面的「忘記密碼」連結。</li>
+                                    <li>輸入註冊時使用的電子郵件，系統會發送重設密碼的指示。</li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">如果忘記交易密碼該怎麼辦？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>登入帳戶後，點選「交易設定」裡的忘記密碼，系統會自動發送新交易密碼至您註冊的的信箱。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">點數錢包是否支援多幣別？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>以美金USD計價，但支援多幣別購買。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">如何充值點數錢包？</span><i class="qa_arrow"><img
+                                        src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <ol>
+                                    <li>點擊「＋」按鈕，選擇所需的儲值點數與面額</li>
+                                    <li>選擇支付方式（如信用卡、電子支付、KiwiPin儲值密碼）。付款完成後，點數將立即加載至您的錢包。</li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">如何查詢錢包的交易記錄？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>點擊左側導覽列「歷史交易」，即可查看所有儲值、支付的詳細資訊。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">點數錢包是否支援退還未使用的點數？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>點數一旦充值或兌換至錢包後，無法進行退款。但如果因交易錯誤導致的問題，請 <a href="mailto:service@kiwipin.com">聯絡客服</a>
+                                    (service@kiwipin.com)協助處理。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="listHead"><span class="qaTitle textMD">是否可以將未使用的點數提現？</span><i
+                                    class="qa_arrow"><img src="./assets/img/i_arrow.svg" alt=""></i>
+                            </div>
+                            <div class="listContent">
+                                <p>點數錢包的餘額僅供於平台內使用，目前不支援將點數提現為現金。</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer></footer>
+
+    <script src="./assets/js/main.js"></script>
+    <script>
+        // $(function () {
+        //     $('base').attr('href', apiUrl);
+        // });
+
+        $("header").load("./layout/header.html");
+        $("footer").load("./layout/footer.html");
+
+        new WOW().init();
+
+        function renderInfo(json) {
+
+            console.log(json);
+
+
+        }
+
+
+
+        //QA AREA
+        $('.qaList ul li .listHead').on('click', function () {
+            const $currentHead = $(this);
+            const $currentItem = $currentHead.closest('li');
+            const $currentArrow = $currentHead.find('.qa_arrow');
+            const $currentContent = $currentItem.find('.listContent');
+            const $allItems = $('.qaList ul li');
+
+            if (!$currentContent.hasClass('show')) {
+                //reset
+                $allItems.find('.qa_arrow').removeClass('rotate');
+                $allItems.find('.listContent').removeClass('show').slideUp();
+
+                $currentArrow.addClass('rotate');
+                $currentContent.addClass('show').stop(true, true).slideDown();
+
+                //目前li在螢幕上面 130 時
+                const currentHeadTop = $currentHead.offset().top;
+                const screenTop = $(window).scrollTop();
+                const screenHeight = $(window).height();
+
+                if (currentHeadTop - screenTop < 130) {
+                    $('html, body').animate({
+                        scrollTop: currentHeadTop - 130
+                    }, 200);
+                }
+            } else {
+                $allItems.find('.qa_arrow').removeClass('rotate');
+                $allItems.find('.listContent').removeClass('show').slideUp();
+            }
+        });
+
+        $(document).ready(function () {
+            const hash = window.location.hash.substring(1);
+
+            if (hash) {
+                const targetElement = $(`#${hash}`);
+
+                const scrollToTarget = (element) => {
+                    const targetPosition = element.offset().top - 20;
+                    $('html, body').animate({
+                        scrollTop: targetPosition
+                    }, 1000);
+                };
+
+                if (hash === 'topic_about') {
+                    scrollToTarget(targetElement);
+                    $('#page_about').addClass('active');
+                } else if (hash === 'topic_qa') {
+                    scrollToTarget(targetElement);
+                    $('#page_qa').addClass('active');
+                }
+            }
+        });
+
+        $(window).on('scroll', function () {
+            handleAreaMainBNEffect();
+        });
+
+    </script>
+</body>
+
+</html>
