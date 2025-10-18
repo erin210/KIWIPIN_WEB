@@ -1,3 +1,4 @@
+// 備註：沒有-t 所以不用另外輸出-t.html
 const fs = require('fs');
 const ejs = require('ejs');
 const path = require('path');
@@ -49,47 +50,62 @@ Object.values(outDirs).forEach(dir => {
   }
 });
 
+
+
 // 讀取 views 裡所有 .ejs 檔案（忽略 layout 資料夾）
-const files = fs.readdirSync(viewsDir)
-  .filter(file => file.endsWith('.ejs') && !file.startsWith('layout/'));
+function compileEjsFolder(srcDir = '') {
+  const files = fs.readdirSync(srcDir)
+    .filter(file => file.endsWith('.ejs') && !file.startsWith('layout/'));
 
-files.forEach(file => {
-  const templatePath = path.join(viewsDir, file);
-  const template = fs.readFileSync(templatePath, 'utf-8');
-  const baseName = path.basename(file, '.ejs');
-  const meta = pageMeta[baseName] || {
-    title: 'KIWIPIN'
-  };
+  files.forEach(file => {
+    const templatePath = path.join(srcDir, file);
+    const template = fs.readFileSync(templatePath, 'utf-8');
+    const baseName = path.basename(file, '.ejs');
+    const meta = pageMeta[baseName] || {
+      title: 'KIWIPIN'
+    };
 
-  // 輸出到不同環境
-  const targets = [{
-      dir: outDirs.dist,
-      cdn: CDN_STAGE,
-      wallet: WALLET_STAGE
-    },
-    {
-      dir: outDirs.prod,
-      cdn: CDN_PROD,
-      wallet: WALLET_PROD
+    //宣告變數（移除initFunction用的）
+    let processedTemplate = template;
+    if (process.env.DISABLE_INIT === "true") {
+      processedTemplate = processedTemplate.replace(/initFunction\s*\([\s\S]*?\)\s*;?/g, '');
     }
-  ];
-
-  targets.forEach(({
-    dir,
-    cdn,
-    wallet
-  }) => {
-    const html = ejs.render(template, {
+    targets.forEach(({
+      dir,
       cdn,
-      wallet,
-      title: meta.title
-    }, {
-      filename: templatePath,
-      views: [viewsDir]
+      wallet
+    }) => {
+      const html = ejs.render(processedTemplate, {
+        cdn,
+        wallet,
+        title: meta.title
+      }, {
+        filename: templatePath,
+        views: [viewsDir]
+      });
+
+      const outputFile = path.join(dir, file.replace('.ejs', '.html'));
+      fs.writeFileSync(outputFile, html);
+      console.log(`✅ 已輸出：${outputFile}`);
     });
 
-    const outputFile = path.join(dir, file.replace('.ejs', '.html'));
-    fs.writeFileSync(outputFile, html);
-    console.log(`✅ 已輸出：${outputFile}`);
+    
+
+    
   });
-});
+}
+
+// 輸出到不同環境
+const targets = [{
+  dir: outDirs.dist,
+  cdn: CDN_STAGE,
+  wallet: WALLET_STAGE
+},
+{
+  dir: outDirs.prod,
+  cdn: CDN_PROD,
+  wallet: WALLET_PROD
+}
+];
+
+compileEjsFolder(viewsDir);

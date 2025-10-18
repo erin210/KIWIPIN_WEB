@@ -4,22 +4,25 @@
   "description": "",
   "main": "config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass-watch": "sass --watch scss:assets/css --embed-source-map --embed-sources",
-    "start": "node server.js",
-    "dev": "concurrently \"npm run sass-watch\" \"npm start\"",
-    "build": "sass scss:assets/css --embed-source-map --embed-sources --style=compressed"
+    "build": "node build.js",
+    "deploy:stage": "cross-env NODE_ENV=stage node deploy.js",
+    "deploy:prod": "cross-env NODE_ENV=prod node deploy.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1692.0",
     "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "fast-glob": "^3.3.3",
+    "md5-file": "^5.0.0"
   },
   "devDependencies": {
     "concurrently": "^9.2.0",
+    "cross-env": "^10.1.0",
     "sass": "^1.89.2"
   }
 }
