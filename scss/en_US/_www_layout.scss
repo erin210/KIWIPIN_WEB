@@ -332,7 +332,7 @@ section {
         // border: 1px solid #f00;
         height: 40vw;
         background: $dark url(#{$img-lang}bn_pic.svg) no-repeat calc(100% - 40px) top;
-        background-size: auto 90%;
+        background-size: auto 520px;
 
         @include tran(0.1s, ease-out);
 
@@ -357,6 +357,12 @@ section {
             // opacity: 0.5;
        
         }
+
+        @include breakpoint("xxl", "max") {
+            // background: $dark url(#{$img-lang}bn_pic.svg) no-repeat calc(100% - 40px) top;
+            background-size: auto 90%;
+        }
+
 
         @include breakpoint("md", "max") {
             &.mainBnEffect {
@@ -387,12 +393,12 @@ section {
     @include breakpoint("xxl", "min") {
         .pageTitle {
             margin-top: 5%;
-            margin-bottom: 6%;
-            padding-top: 7%;
+            margin-bottom: 3%;
+            padding-top: 3%;
         }
 
         p {
-            margin-bottom: 6%;
+            margin-bottom: 3%;
         }
     }
 
@@ -443,15 +449,13 @@ section {
         }
 
         .btn_start {
-           margin-left: 0;
+            margin-left: 0;
         }
     }
 
 
     @include breakpoint("xs", "max") {
-        p{
-            width: 100%;
-        }
+
         .wrap {
             height: 180vw;
             background-size: 70%;
@@ -482,7 +486,7 @@ section {
     // border: 1px solid red;
     @include tran(0.2s, ease-out);
 
-    margin-top: 35vw;
+    margin-top: 500px;
 
     @include breakpoint("xxl", "max") {
         margin-top: 35vw;
@@ -490,18 +494,20 @@ section {
 
 
     @include breakpoint("xl", "max") {
-        margin-top: 44vw;
+        margin-top: 42vw;
     }
 
 
     @include breakpoint("md", "max") {
-        margin-top: 42vw;
+        margin-top: 40vw;
     }
 
 
     @include breakpoint("sm", "max") {
         margin-top: 52vw;
     }
+
+
     @include breakpoint("xs", "max") {
         margin-top: 147vw;
     }

@@ -19,7 +19,7 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1200px;//忽略卷軸寬度
+        max-width: 1200px; //忽略卷軸寬度
 
         // width: 100%;
         margin: 0 auto;
@@ -424,19 +424,47 @@ section {
     @include breakpoint("sm", "max") {
         .wrap {
             height: 180vw;
-            background-size: 75%;
-            background-position: 27% top;
+            background-size: 53%;
+            background-position: 87% top;
         }
 
         .pageTitle {
-            margin-top: 20%;
+            margin-top: 9%;
             margin-bottom: 7%;
-            padding-top: 82%;
+            padding-top: 4%;
+            text-align: left;
+            font-size: 32px;
+        }
+
+        p {
+            width: 50%;
+            margin-bottom: 9%;
+            text-align: left;
+        }
+
+        .btn_start {
+            margin-left: 0;
+        }
+    }
+
+
+    @include breakpoint("xs", "max") {
+        .wrap {
+            height: 180vw;
+            background-size: 58vw;
+            background-position: 40% top;
+        }
+
+        .pageTitle {
+            margin-top: 15%;
+            margin-bottom: 7%;
+            padding-top: 59vw;
             text-align: center;
             font-size: 32px;
         }
 
         p {
+            width: 100%;
             margin-bottom: 9%;
             text-align: center;
         }
@@ -469,8 +497,14 @@ section {
 
 
     @include breakpoint("sm", "max") {
-        margin-top: 147vw;
+        margin-top: 49vw;
     }
+
+
+    @include breakpoint("xs", "max") {
+        margin-top: 131vw;
+    }
+
 
 
     .areaBg {
@@ -612,6 +646,18 @@ section {
 
     h2 {
         text-align: center;
+
+        @include breakpoint("md", "max") {
+            padding: 0 5%;
+            box-sizing: border-box;
+        }
+
+
+        @include breakpoint("sm", "max") {
+            padding: 0;
+
+            // box-sizing: border-box;
+        }
     }
 
     ul.serviceList {
@@ -874,7 +920,7 @@ section {
 
     .sticky_pic {
         position: sticky;
-        top: 15vh;
+        top: 18vh;
         left: 0;
         height: 90vh;
 
